@@ -1,0 +1,301 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F8975A55167CAD440093E19E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8975A54167CAD440093E19E /* UIKit.framework */; };
+		F8975A57167CAD440093E19E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8975A56167CAD440093E19E /* Foundation.framework */; };
+		F8975A59167CAD440093E19E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8975A58167CAD440093E19E /* CoreGraphics.framework */; };
+		F8975A5F167CAD440093E19E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F8975A5D167CAD440093E19E /* InfoPlist.strings */; };
+		F8975A61167CAD440093E19E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F8975A60167CAD440093E19E /* main.m */; };
+		F8975A65167CAD440093E19E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8975A64167CAD440093E19E /* AppDelegate.m */; };
+		F8975A67167CAD440093E19E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975A66167CAD440093E19E /* Default.png */; };
+		F8975A69167CAD440093E19E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975A68167CAD440093E19E /* Default@2x.png */; };
+		F8975A6B167CAD440093E19E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975A6A167CAD440093E19E /* Default-568h@2x.png */; };
+		F8975A6E167CAD440093E19E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8975A6D167CAD440093E19E /* ViewController.m */; };
+		F8975A71167CAD440093E19E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8975A6F167CAD440093E19E /* ViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F8975A50167CAD440093E19E /* iPoker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPoker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8975A54167CAD440093E19E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F8975A56167CAD440093E19E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F8975A58167CAD440093E19E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F8975A5C167CAD440093E19E /* iPoker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iPoker-Info.plist"; sourceTree = "<group>"; };
+		F8975A5E167CAD440093E19E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F8975A60167CAD440093E19E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F8975A62167CAD440093E19E /* iPoker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iPoker-Prefix.pch"; sourceTree = "<group>"; };
+		F8975A63167CAD440093E19E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F8975A64167CAD440093E19E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F8975A66167CAD440093E19E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		F8975A68167CAD440093E19E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		F8975A6A167CAD440093E19E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F8975A6C167CAD440093E19E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F8975A6D167CAD440093E19E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F8975A70167CAD440093E19E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F8975A4D167CAD440093E19E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8975A55167CAD440093E19E /* UIKit.framework in Frameworks */,
+				F8975A57167CAD440093E19E /* Foundation.framework in Frameworks */,
+				F8975A59167CAD440093E19E /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F8975A45167CAD440093E19E = {
+			isa = PBXGroup;
+			children = (
+				F8975A5A167CAD440093E19E /* iPoker */,
+				F8975A53167CAD440093E19E /* Frameworks */,
+				F8975A51167CAD440093E19E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F8975A51167CAD440093E19E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8975A50167CAD440093E19E /* iPoker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F8975A53167CAD440093E19E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F8975A54167CAD440093E19E /* UIKit.framework */,
+				F8975A56167CAD440093E19E /* Foundation.framework */,
+				F8975A58167CAD440093E19E /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F8975A5A167CAD440093E19E /* iPoker */ = {
+			isa = PBXGroup;
+			children = (
+				F8975A63167CAD440093E19E /* AppDelegate.h */,
+				F8975A64167CAD440093E19E /* AppDelegate.m */,
+				F8975A6C167CAD440093E19E /* ViewController.h */,
+				F8975A6D167CAD440093E19E /* ViewController.m */,
+				F8975A6F167CAD440093E19E /* ViewController.xib */,
+				F8975A5B167CAD440093E19E /* Supporting Files */,
+			);
+			path = iPoker;
+			sourceTree = "<group>";
+		};
+		F8975A5B167CAD440093E19E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F8975A5C167CAD440093E19E /* iPoker-Info.plist */,
+				F8975A5D167CAD440093E19E /* InfoPlist.strings */,
+				F8975A60167CAD440093E19E /* main.m */,
+				F8975A62167CAD440093E19E /* iPoker-Prefix.pch */,
+				F8975A66167CAD440093E19E /* Default.png */,
+				F8975A68167CAD440093E19E /* Default@2x.png */,
+				F8975A6A167CAD440093E19E /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F8975A4F167CAD440093E19E /* iPoker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8975A74167CAD440093E19E /* Build configuration list for PBXNativeTarget "iPoker" */;
+			buildPhases = (
+				F8975A4C167CAD440093E19E /* Sources */,
+				F8975A4D167CAD440093E19E /* Frameworks */,
+				F8975A4E167CAD440093E19E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iPoker;
+			productName = iPoker;
+			productReference = F8975A50167CAD440093E19E /* iPoker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F8975A47167CAD440093E19E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Georgi Bachvarov";
+			};
+			buildConfigurationList = F8975A4A167CAD440093E19E /* Build configuration list for PBXProject "iPoker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F8975A45167CAD440093E19E;
+			productRefGroup = F8975A51167CAD440093E19E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F8975A4F167CAD440093E19E /* iPoker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F8975A4E167CAD440093E19E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8975A5F167CAD440093E19E /* InfoPlist.strings in Resources */,
+				F8975A67167CAD440093E19E /* Default.png in Resources */,
+				F8975A69167CAD440093E19E /* Default@2x.png in Resources */,
+				F8975A6B167CAD440093E19E /* Default-568h@2x.png in Resources */,
+				F8975A71167CAD440093E19E /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F8975A4C167CAD440093E19E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8975A61167CAD440093E19E /* main.m in Sources */,
+				F8975A65167CAD440093E19E /* AppDelegate.m in Sources */,
+				F8975A6E167CAD440093E19E /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F8975A5D167CAD440093E19E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8975A5E167CAD440093E19E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F8975A6F167CAD440093E19E /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8975A70167CAD440093E19E /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F8975A72167CAD440093E19E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		F8975A73167CAD440093E19E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F8975A75167CAD440093E19E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iPoker/iPoker-Prefix.pch";
+				INFOPLIST_FILE = "iPoker/iPoker-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F8975A76167CAD440093E19E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iPoker/iPoker-Prefix.pch";
+				INFOPLIST_FILE = "iPoker/iPoker-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F8975A4A167CAD440093E19E /* Build configuration list for PBXProject "iPoker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8975A72167CAD440093E19E /* Debug */,
+				F8975A73167CAD440093E19E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8975A74167CAD440093E19E /* Build configuration list for PBXNativeTarget "iPoker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8975A75167CAD440093E19E /* Debug */,
+				F8975A76167CAD440093E19E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F8975A47167CAD440093E19E /* Project object */;
+}
