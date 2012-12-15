@@ -18,6 +18,64 @@
 		F8975A6B167CAD440093E19E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975A6A167CAD440093E19E /* Default-568h@2x.png */; };
 		F8975A6E167CAD440093E19E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8975A6D167CAD440093E19E /* ViewController.m */; };
 		F8975A71167CAD440093E19E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8975A6F167CAD440093E19E /* ViewController.xib */; };
+		F8975A80167CB2970093E19E /* GameState.m in Sources */ = {isa = PBXBuildFile; fileRef = F8975A7F167CB2970093E19E /* GameState.m */; };
+		F8975A83167CB2F10093E19E /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = F8975A82167CB2F10093E19E /* Card.m */; };
+		F8975A86167CC0430093E19E /* PokerBot.m in Sources */ = {isa = PBXBuildFile; fileRef = F8975A85167CC0430093E19E /* PokerBot.m */; };
+		F8975A8D167CC4370093E19E /* HandStrength.m in Sources */ = {isa = PBXBuildFile; fileRef = F8975A8C167CC4360093E19E /* HandStrength.m */; };
+		F8975A90167CDA9B0093E19E /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = F8975A8F167CDA9B0093E19E /* Player.m */; };
+		F8975A93167CDAFD0093E19E /* HumanPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F8975A92167CDAFD0093E19E /* HumanPlayer.m */; };
+		F8975ADA167CE6B60093E19E /* 9 Of Clubs.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975A97167CE6B60093E19E /* 9 Of Clubs.png */; };
+		F8975ADB167CE6B60093E19E /* 9 Of Diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975A98167CE6B60093E19E /* 9 Of Diamonds.png */; };
+		F8975ADC167CE6B60093E19E /* 9 Of Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975A99167CE6B60093E19E /* 9 Of Hearts.png */; };
+		F8975ADD167CE6B60093E19E /* 9 Of Spades.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975A9A167CE6B60093E19E /* 9 Of Spades.png */; };
+		F8975ADE167CE6B60093E19E /* Ace Of Clubs.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975A9B167CE6B60093E19E /* Ace Of Clubs.png */; };
+		F8975ADF167CE6B60093E19E /* Ace Of Diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975A9C167CE6B60093E19E /* Ace Of Diamonds.png */; };
+		F8975AE0167CE6B60093E19E /* Ace Of Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975A9D167CE6B60093E19E /* Ace Of Hearts.png */; };
+		F8975AE2167CE6B60093E19E /* Ace Of Spades.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975A9F167CE6B60093E19E /* Ace Of Spades.png */; };
+		F8975AE4167CE6B60093E19E /* Jack Of Clubs.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AA1167CE6B60093E19E /* Jack Of Clubs.png */; };
+		F8975AE6167CE6B60093E19E /* Jack Of Diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AA3167CE6B60093E19E /* Jack Of Diamonds.png */; };
+		F8975AE8167CE6B60093E19E /* Jack Of Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AA5167CE6B60093E19E /* Jack Of Hearts.png */; };
+		F8975AEA167CE6B60093E19E /* Jack Of Spades.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AA7167CE6B60093E19E /* Jack Of Spades.png */; };
+		F8975AEC167CE6B60093E19E /* King Of Clubs.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AA9167CE6B60093E19E /* King Of Clubs.png */; };
+		F8975AEE167CE6B60093E19E /* Kind Of Diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AAB167CE6B60093E19E /* Kind Of Diamonds.png */; };
+		F8975AF0167CE6B60093E19E /* King Of Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AAD167CE6B60093E19E /* King Of Hearts.png */; };
+		F8975AF2167CE6B60093E19E /* King Of Spades.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AAF167CE6B60093E19E /* King Of Spades.png */; };
+		F8975AF4167CE6B60093E19E /* Queen Of Clubs.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AB1167CE6B60093E19E /* Queen Of Clubs.png */; };
+		F8975AF6167CE6B60093E19E /* Queen Of Diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AB3167CE6B60093E19E /* Queen Of Diamonds.png */; };
+		F8975AF8167CE6B60093E19E /* Queen Of Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AB5167CE6B60093E19E /* Queen Of Hearts.png */; };
+		F8975AFA167CE6B60093E19E /* Queen Of Spades.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AB7167CE6B60093E19E /* Queen Of Spades.png */; };
+		F8975AFD167CE6B60093E19E /* 2 Of Clubs.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975ABA167CE6B60093E19E /* 2 Of Clubs.png */; };
+		F8975AFE167CE6B60093E19E /* 2 Of Diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975ABB167CE6B60093E19E /* 2 Of Diamonds.png */; };
+		F8975AFF167CE6B60093E19E /* 2 Of Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975ABC167CE6B60093E19E /* 2 Of Hearts.png */; };
+		F8975B00167CE6B60093E19E /* 2 Of Spades.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975ABD167CE6B60093E19E /* 2 Of Spades.png */; };
+		F8975B01167CE6B60093E19E /* 3 Of Clubs.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975ABE167CE6B60093E19E /* 3 Of Clubs.png */; };
+		F8975B02167CE6B60093E19E /* 3 Of Diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975ABF167CE6B60093E19E /* 3 Of Diamonds.png */; };
+		F8975B03167CE6B60093E19E /* 3 Of Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AC0167CE6B60093E19E /* 3 Of Hearts.png */; };
+		F8975B04167CE6B60093E19E /* 3 Of Spades.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AC1167CE6B60093E19E /* 3 Of Spades.png */; };
+		F8975B05167CE6B60093E19E /* 4 Of Clubs.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AC2167CE6B60093E19E /* 4 Of Clubs.png */; };
+		F8975B06167CE6B60093E19E /* 4 Of Diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AC3167CE6B60093E19E /* 4 Of Diamonds.png */; };
+		F8975B07167CE6B60093E19E /* 4 Of Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AC4167CE6B60093E19E /* 4 Of Hearts.png */; };
+		F8975B08167CE6B60093E19E /* 4 Of Spades.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AC5167CE6B60093E19E /* 4 Of Spades.png */; };
+		F8975B09167CE6B60093E19E /* 5 Of Clubs.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AC6167CE6B60093E19E /* 5 Of Clubs.png */; };
+		F8975B0A167CE6B60093E19E /* 5 Of Diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AC7167CE6B60093E19E /* 5 Of Diamonds.png */; };
+		F8975B0B167CE6B60093E19E /* 5 Of Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AC8167CE6B60093E19E /* 5 Of Hearts.png */; };
+		F8975B0C167CE6B60093E19E /* 5 Of Spades.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AC9167CE6B60093E19E /* 5 Of Spades.png */; };
+		F8975B0D167CE6B60093E19E /* 6 Of Clubs.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975ACA167CE6B60093E19E /* 6 Of Clubs.png */; };
+		F8975B0E167CE6B60093E19E /* 6 Of Diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975ACB167CE6B60093E19E /* 6 Of Diamonds.png */; };
+		F8975B0F167CE6B60093E19E /* 6 Of Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975ACC167CE6B60093E19E /* 6 Of Hearts.png */; };
+		F8975B10167CE6B60093E19E /* 6 Of Spades.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975ACD167CE6B60093E19E /* 6 Of Spades.png */; };
+		F8975B11167CE6B60093E19E /* 7 Of Clubs.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975ACE167CE6B60093E19E /* 7 Of Clubs.png */; };
+		F8975B12167CE6B60093E19E /* 7 Of Diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975ACF167CE6B60093E19E /* 7 Of Diamonds.png */; };
+		F8975B13167CE6B60093E19E /* 7 Of Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AD0167CE6B60093E19E /* 7 Of Hearts.png */; };
+		F8975B14167CE6B60093E19E /* 7 Of Spades.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AD1167CE6B60093E19E /* 7 Of Spades.png */; };
+		F8975B15167CE6B60093E19E /* 8 Of Clubs.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AD2167CE6B60093E19E /* 8 Of Clubs.png */; };
+		F8975B16167CE6B60093E19E /* 8 Of Diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AD3167CE6B60093E19E /* 8 Of Diamonds.png */; };
+		F8975B17167CE6B60093E19E /* 8 Of Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AD4167CE6B60093E19E /* 8 Of Hearts.png */; };
+		F8975B18167CE6B60093E19E /* 8 Of Spades.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AD5167CE6B60093E19E /* 8 Of Spades.png */; };
+		F8975B19167CE6B60093E19E /* 10 Of Clubs.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AD6167CE6B60093E19E /* 10 Of Clubs.png */; };
+		F8975B1A167CE6B60093E19E /* 10 Of Diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AD7167CE6B60093E19E /* 10 Of Diamonds.png */; };
+		F8975B1B167CE6B60093E19E /* 10 Of Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AD8167CE6B60093E19E /* 10 Of Hearts.png */; };
+		F8975B1C167CE6B60093E19E /* 10 Of Spades.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AD9167CE6B60093E19E /* 10 Of Spades.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +95,70 @@
 		F8975A6C167CAD440093E19E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F8975A6D167CAD440093E19E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F8975A70167CAD440093E19E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		F8975A7E167CB2970093E19E /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
+		F8975A7F167CB2970093E19E /* GameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameState.m; sourceTree = "<group>"; };
+		F8975A81167CB2F10093E19E /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		F8975A82167CB2F10093E19E /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		F8975A84167CC0430093E19E /* PokerBot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokerBot.h; sourceTree = "<group>"; };
+		F8975A85167CC0430093E19E /* PokerBot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokerBot.m; sourceTree = "<group>"; };
+		F8975A8B167CC4360093E19E /* HandStrength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandStrength.h; sourceTree = "<group>"; };
+		F8975A8C167CC4360093E19E /* HandStrength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandStrength.m; sourceTree = "<group>"; };
+		F8975A8E167CDA9B0093E19E /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		F8975A8F167CDA9B0093E19E /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		F8975A91167CDAFD0093E19E /* HumanPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanPlayer.h; sourceTree = "<group>"; };
+		F8975A92167CDAFD0093E19E /* HumanPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanPlayer.m; sourceTree = "<group>"; };
+		F8975A97167CE6B60093E19E /* 9 Of Clubs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "9 Of Clubs.png"; sourceTree = "<group>"; };
+		F8975A98167CE6B60093E19E /* 9 Of Diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "9 Of Diamonds.png"; sourceTree = "<group>"; };
+		F8975A99167CE6B60093E19E /* 9 Of Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "9 Of Hearts.png"; sourceTree = "<group>"; };
+		F8975A9A167CE6B60093E19E /* 9 Of Spades.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "9 Of Spades.png"; sourceTree = "<group>"; };
+		F8975A9B167CE6B60093E19E /* Ace Of Clubs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ace Of Clubs.png"; sourceTree = "<group>"; };
+		F8975A9C167CE6B60093E19E /* Ace Of Diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ace Of Diamonds.png"; sourceTree = "<group>"; };
+		F8975A9D167CE6B60093E19E /* Ace Of Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ace Of Hearts.png"; sourceTree = "<group>"; };
+		F8975A9F167CE6B60093E19E /* Ace Of Spades.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ace Of Spades.png"; sourceTree = "<group>"; };
+		F8975AA1167CE6B60093E19E /* Jack Of Clubs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jack Of Clubs.png"; sourceTree = "<group>"; };
+		F8975AA3167CE6B60093E19E /* Jack Of Diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jack Of Diamonds.png"; sourceTree = "<group>"; };
+		F8975AA5167CE6B60093E19E /* Jack Of Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jack Of Hearts.png"; sourceTree = "<group>"; };
+		F8975AA7167CE6B60093E19E /* Jack Of Spades.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jack Of Spades.png"; sourceTree = "<group>"; };
+		F8975AA9167CE6B60093E19E /* King Of Clubs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "King Of Clubs.png"; sourceTree = "<group>"; };
+		F8975AAB167CE6B60093E19E /* Kind Of Diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Kind Of Diamonds.png"; sourceTree = "<group>"; };
+		F8975AAD167CE6B60093E19E /* King Of Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "King Of Hearts.png"; sourceTree = "<group>"; };
+		F8975AAF167CE6B60093E19E /* King Of Spades.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "King Of Spades.png"; sourceTree = "<group>"; };
+		F8975AB1167CE6B60093E19E /* Queen Of Clubs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Queen Of Clubs.png"; sourceTree = "<group>"; };
+		F8975AB3167CE6B60093E19E /* Queen Of Diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Queen Of Diamonds.png"; sourceTree = "<group>"; };
+		F8975AB5167CE6B60093E19E /* Queen Of Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Queen Of Hearts.png"; sourceTree = "<group>"; };
+		F8975AB7167CE6B60093E19E /* Queen Of Spades.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Queen Of Spades.png"; sourceTree = "<group>"; };
+		F8975ABA167CE6B60093E19E /* 2 Of Clubs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2 Of Clubs.png"; sourceTree = "<group>"; };
+		F8975ABB167CE6B60093E19E /* 2 Of Diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2 Of Diamonds.png"; sourceTree = "<group>"; };
+		F8975ABC167CE6B60093E19E /* 2 Of Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2 Of Hearts.png"; sourceTree = "<group>"; };
+		F8975ABD167CE6B60093E19E /* 2 Of Spades.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2 Of Spades.png"; sourceTree = "<group>"; };
+		F8975ABE167CE6B60093E19E /* 3 Of Clubs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3 Of Clubs.png"; sourceTree = "<group>"; };
+		F8975ABF167CE6B60093E19E /* 3 Of Diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3 Of Diamonds.png"; sourceTree = "<group>"; };
+		F8975AC0167CE6B60093E19E /* 3 Of Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3 Of Hearts.png"; sourceTree = "<group>"; };
+		F8975AC1167CE6B60093E19E /* 3 Of Spades.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3 Of Spades.png"; sourceTree = "<group>"; };
+		F8975AC2167CE6B60093E19E /* 4 Of Clubs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4 Of Clubs.png"; sourceTree = "<group>"; };
+		F8975AC3167CE6B60093E19E /* 4 Of Diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4 Of Diamonds.png"; sourceTree = "<group>"; };
+		F8975AC4167CE6B60093E19E /* 4 Of Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4 Of Hearts.png"; sourceTree = "<group>"; };
+		F8975AC5167CE6B60093E19E /* 4 Of Spades.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4 Of Spades.png"; sourceTree = "<group>"; };
+		F8975AC6167CE6B60093E19E /* 5 Of Clubs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5 Of Clubs.png"; sourceTree = "<group>"; };
+		F8975AC7167CE6B60093E19E /* 5 Of Diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5 Of Diamonds.png"; sourceTree = "<group>"; };
+		F8975AC8167CE6B60093E19E /* 5 Of Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5 Of Hearts.png"; sourceTree = "<group>"; };
+		F8975AC9167CE6B60093E19E /* 5 Of Spades.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5 Of Spades.png"; sourceTree = "<group>"; };
+		F8975ACA167CE6B60093E19E /* 6 Of Clubs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "6 Of Clubs.png"; sourceTree = "<group>"; };
+		F8975ACB167CE6B60093E19E /* 6 Of Diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "6 Of Diamonds.png"; sourceTree = "<group>"; };
+		F8975ACC167CE6B60093E19E /* 6 Of Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "6 Of Hearts.png"; sourceTree = "<group>"; };
+		F8975ACD167CE6B60093E19E /* 6 Of Spades.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "6 Of Spades.png"; sourceTree = "<group>"; };
+		F8975ACE167CE6B60093E19E /* 7 Of Clubs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "7 Of Clubs.png"; sourceTree = "<group>"; };
+		F8975ACF167CE6B60093E19E /* 7 Of Diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "7 Of Diamonds.png"; sourceTree = "<group>"; };
+		F8975AD0167CE6B60093E19E /* 7 Of Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "7 Of Hearts.png"; sourceTree = "<group>"; };
+		F8975AD1167CE6B60093E19E /* 7 Of Spades.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "7 Of Spades.png"; sourceTree = "<group>"; };
+		F8975AD2167CE6B60093E19E /* 8 Of Clubs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "8 Of Clubs.png"; sourceTree = "<group>"; };
+		F8975AD3167CE6B60093E19E /* 8 Of Diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "8 Of Diamonds.png"; sourceTree = "<group>"; };
+		F8975AD4167CE6B60093E19E /* 8 Of Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "8 Of Hearts.png"; sourceTree = "<group>"; };
+		F8975AD5167CE6B60093E19E /* 8 Of Spades.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "8 Of Spades.png"; sourceTree = "<group>"; };
+		F8975AD6167CE6B60093E19E /* 10 Of Clubs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "10 Of Clubs.png"; sourceTree = "<group>"; };
+		F8975AD7167CE6B60093E19E /* 10 Of Diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "10 Of Diamonds.png"; sourceTree = "<group>"; };
+		F8975AD8167CE6B60093E19E /* 10 Of Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "10 Of Hearts.png"; sourceTree = "<group>"; };
+		F8975AD9167CE6B60093E19E /* 10 Of Spades.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "10 Of Spades.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +205,11 @@
 		F8975A5A167CAD440093E19E /* iPoker */ = {
 			isa = PBXGroup;
 			children = (
+				F8975A94167CE62D0093E19E /* Resources */,
+				F8975A7D167CB10E0093E19E /* Entities */,
+				F8975A7B167CB1070093E19E /* UI */,
 				F8975A63167CAD440093E19E /* AppDelegate.h */,
 				F8975A64167CAD440093E19E /* AppDelegate.m */,
-				F8975A6C167CAD440093E19E /* ViewController.h */,
-				F8975A6D167CAD440093E19E /* ViewController.m */,
-				F8975A6F167CAD440093E19E /* ViewController.xib */,
 				F8975A5B167CAD440093E19E /* Supporting Files */,
 			);
 			path = iPoker;
@@ -105,6 +227,110 @@
 				F8975A6A167CAD440093E19E /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F8975A7B167CB1070093E19E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F8975A6C167CAD440093E19E /* ViewController.h */,
+				F8975A6D167CAD440093E19E /* ViewController.m */,
+				F8975A6F167CAD440093E19E /* ViewController.xib */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		F8975A7D167CB10E0093E19E /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				F8975A7E167CB2970093E19E /* GameState.h */,
+				F8975A7F167CB2970093E19E /* GameState.m */,
+				F8975A81167CB2F10093E19E /* Card.h */,
+				F8975A82167CB2F10093E19E /* Card.m */,
+				F8975A8B167CC4360093E19E /* HandStrength.h */,
+				F8975A8C167CC4360093E19E /* HandStrength.m */,
+				F8975A8E167CDA9B0093E19E /* Player.h */,
+				F8975A8F167CDA9B0093E19E /* Player.m */,
+				F8975A84167CC0430093E19E /* PokerBot.h */,
+				F8975A85167CC0430093E19E /* PokerBot.m */,
+				F8975A91167CDAFD0093E19E /* HumanPlayer.h */,
+				F8975A92167CDAFD0093E19E /* HumanPlayer.m */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		F8975A94167CE62D0093E19E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F8975A95167CE6350093E19E /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F8975A95167CE6350093E19E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F8975A96167CE6480093E19E /* Cards */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		F8975A96167CE6480093E19E /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				F8975A97167CE6B60093E19E /* 9 Of Clubs.png */,
+				F8975A98167CE6B60093E19E /* 9 Of Diamonds.png */,
+				F8975A99167CE6B60093E19E /* 9 Of Hearts.png */,
+				F8975A9A167CE6B60093E19E /* 9 Of Spades.png */,
+				F8975A9B167CE6B60093E19E /* Ace Of Clubs.png */,
+				F8975A9C167CE6B60093E19E /* Ace Of Diamonds.png */,
+				F8975A9D167CE6B60093E19E /* Ace Of Hearts.png */,
+				F8975A9F167CE6B60093E19E /* Ace Of Spades.png */,
+				F8975AA1167CE6B60093E19E /* Jack Of Clubs.png */,
+				F8975AA3167CE6B60093E19E /* Jack Of Diamonds.png */,
+				F8975AA5167CE6B60093E19E /* Jack Of Hearts.png */,
+				F8975AA7167CE6B60093E19E /* Jack Of Spades.png */,
+				F8975AA9167CE6B60093E19E /* King Of Clubs.png */,
+				F8975AAB167CE6B60093E19E /* Kind Of Diamonds.png */,
+				F8975AAD167CE6B60093E19E /* King Of Hearts.png */,
+				F8975AAF167CE6B60093E19E /* King Of Spades.png */,
+				F8975AB1167CE6B60093E19E /* Queen Of Clubs.png */,
+				F8975AB3167CE6B60093E19E /* Queen Of Diamonds.png */,
+				F8975AB5167CE6B60093E19E /* Queen Of Hearts.png */,
+				F8975AB7167CE6B60093E19E /* Queen Of Spades.png */,
+				F8975ABA167CE6B60093E19E /* 2 Of Clubs.png */,
+				F8975ABB167CE6B60093E19E /* 2 Of Diamonds.png */,
+				F8975ABC167CE6B60093E19E /* 2 Of Hearts.png */,
+				F8975ABD167CE6B60093E19E /* 2 Of Spades.png */,
+				F8975ABE167CE6B60093E19E /* 3 Of Clubs.png */,
+				F8975ABF167CE6B60093E19E /* 3 Of Diamonds.png */,
+				F8975AC0167CE6B60093E19E /* 3 Of Hearts.png */,
+				F8975AC1167CE6B60093E19E /* 3 Of Spades.png */,
+				F8975AC2167CE6B60093E19E /* 4 Of Clubs.png */,
+				F8975AC3167CE6B60093E19E /* 4 Of Diamonds.png */,
+				F8975AC4167CE6B60093E19E /* 4 Of Hearts.png */,
+				F8975AC5167CE6B60093E19E /* 4 Of Spades.png */,
+				F8975AC6167CE6B60093E19E /* 5 Of Clubs.png */,
+				F8975AC7167CE6B60093E19E /* 5 Of Diamonds.png */,
+				F8975AC8167CE6B60093E19E /* 5 Of Hearts.png */,
+				F8975AC9167CE6B60093E19E /* 5 Of Spades.png */,
+				F8975ACA167CE6B60093E19E /* 6 Of Clubs.png */,
+				F8975ACB167CE6B60093E19E /* 6 Of Diamonds.png */,
+				F8975ACC167CE6B60093E19E /* 6 Of Hearts.png */,
+				F8975ACD167CE6B60093E19E /* 6 Of Spades.png */,
+				F8975ACE167CE6B60093E19E /* 7 Of Clubs.png */,
+				F8975ACF167CE6B60093E19E /* 7 Of Diamonds.png */,
+				F8975AD0167CE6B60093E19E /* 7 Of Hearts.png */,
+				F8975AD1167CE6B60093E19E /* 7 Of Spades.png */,
+				F8975AD2167CE6B60093E19E /* 8 Of Clubs.png */,
+				F8975AD3167CE6B60093E19E /* 8 Of Diamonds.png */,
+				F8975AD4167CE6B60093E19E /* 8 Of Hearts.png */,
+				F8975AD5167CE6B60093E19E /* 8 Of Spades.png */,
+				F8975AD6167CE6B60093E19E /* 10 Of Clubs.png */,
+				F8975AD7167CE6B60093E19E /* 10 Of Diamonds.png */,
+				F8975AD8167CE6B60093E19E /* 10 Of Hearts.png */,
+				F8975AD9167CE6B60093E19E /* 10 Of Spades.png */,
+			);
+			name = Cards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +389,58 @@
 				F8975A69167CAD440093E19E /* Default@2x.png in Resources */,
 				F8975A6B167CAD440093E19E /* Default-568h@2x.png in Resources */,
 				F8975A71167CAD440093E19E /* ViewController.xib in Resources */,
+				F8975ADA167CE6B60093E19E /* 9 Of Clubs.png in Resources */,
+				F8975ADB167CE6B60093E19E /* 9 Of Diamonds.png in Resources */,
+				F8975ADC167CE6B60093E19E /* 9 Of Hearts.png in Resources */,
+				F8975ADD167CE6B60093E19E /* 9 Of Spades.png in Resources */,
+				F8975ADE167CE6B60093E19E /* Ace Of Clubs.png in Resources */,
+				F8975ADF167CE6B60093E19E /* Ace Of Diamonds.png in Resources */,
+				F8975AE0167CE6B60093E19E /* Ace Of Hearts.png in Resources */,
+				F8975AE2167CE6B60093E19E /* Ace Of Spades.png in Resources */,
+				F8975AE4167CE6B60093E19E /* Jack Of Clubs.png in Resources */,
+				F8975AE6167CE6B60093E19E /* Jack Of Diamonds.png in Resources */,
+				F8975AE8167CE6B60093E19E /* Jack Of Hearts.png in Resources */,
+				F8975AEA167CE6B60093E19E /* Jack Of Spades.png in Resources */,
+				F8975AEC167CE6B60093E19E /* King Of Clubs.png in Resources */,
+				F8975AEE167CE6B60093E19E /* Kind Of Diamonds.png in Resources */,
+				F8975AF0167CE6B60093E19E /* King Of Hearts.png in Resources */,
+				F8975AF2167CE6B60093E19E /* King Of Spades.png in Resources */,
+				F8975AF4167CE6B60093E19E /* Queen Of Clubs.png in Resources */,
+				F8975AF6167CE6B60093E19E /* Queen Of Diamonds.png in Resources */,
+				F8975AF8167CE6B60093E19E /* Queen Of Hearts.png in Resources */,
+				F8975AFA167CE6B60093E19E /* Queen Of Spades.png in Resources */,
+				F8975AFD167CE6B60093E19E /* 2 Of Clubs.png in Resources */,
+				F8975AFE167CE6B60093E19E /* 2 Of Diamonds.png in Resources */,
+				F8975AFF167CE6B60093E19E /* 2 Of Hearts.png in Resources */,
+				F8975B00167CE6B60093E19E /* 2 Of Spades.png in Resources */,
+				F8975B01167CE6B60093E19E /* 3 Of Clubs.png in Resources */,
+				F8975B02167CE6B60093E19E /* 3 Of Diamonds.png in Resources */,
+				F8975B03167CE6B60093E19E /* 3 Of Hearts.png in Resources */,
+				F8975B04167CE6B60093E19E /* 3 Of Spades.png in Resources */,
+				F8975B05167CE6B60093E19E /* 4 Of Clubs.png in Resources */,
+				F8975B06167CE6B60093E19E /* 4 Of Diamonds.png in Resources */,
+				F8975B07167CE6B60093E19E /* 4 Of Hearts.png in Resources */,
+				F8975B08167CE6B60093E19E /* 4 Of Spades.png in Resources */,
+				F8975B09167CE6B60093E19E /* 5 Of Clubs.png in Resources */,
+				F8975B0A167CE6B60093E19E /* 5 Of Diamonds.png in Resources */,
+				F8975B0B167CE6B60093E19E /* 5 Of Hearts.png in Resources */,
+				F8975B0C167CE6B60093E19E /* 5 Of Spades.png in Resources */,
+				F8975B0D167CE6B60093E19E /* 6 Of Clubs.png in Resources */,
+				F8975B0E167CE6B60093E19E /* 6 Of Diamonds.png in Resources */,
+				F8975B0F167CE6B60093E19E /* 6 Of Hearts.png in Resources */,
+				F8975B10167CE6B60093E19E /* 6 Of Spades.png in Resources */,
+				F8975B11167CE6B60093E19E /* 7 Of Clubs.png in Resources */,
+				F8975B12167CE6B60093E19E /* 7 Of Diamonds.png in Resources */,
+				F8975B13167CE6B60093E19E /* 7 Of Hearts.png in Resources */,
+				F8975B14167CE6B60093E19E /* 7 Of Spades.png in Resources */,
+				F8975B15167CE6B60093E19E /* 8 Of Clubs.png in Resources */,
+				F8975B16167CE6B60093E19E /* 8 Of Diamonds.png in Resources */,
+				F8975B17167CE6B60093E19E /* 8 Of Hearts.png in Resources */,
+				F8975B18167CE6B60093E19E /* 8 Of Spades.png in Resources */,
+				F8975B19167CE6B60093E19E /* 10 Of Clubs.png in Resources */,
+				F8975B1A167CE6B60093E19E /* 10 Of Diamonds.png in Resources */,
+				F8975B1B167CE6B60093E19E /* 10 Of Hearts.png in Resources */,
+				F8975B1C167CE6B60093E19E /* 10 Of Spades.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +454,12 @@
 				F8975A61167CAD440093E19E /* main.m in Sources */,
 				F8975A65167CAD440093E19E /* AppDelegate.m in Sources */,
 				F8975A6E167CAD440093E19E /* ViewController.m in Sources */,
+				F8975A80167CB2970093E19E /* GameState.m in Sources */,
+				F8975A83167CB2F10093E19E /* Card.m in Sources */,
+				F8975A86167CC0430093E19E /* PokerBot.m in Sources */,
+				F8975A8D167CC4370093E19E /* HandStrength.m in Sources */,
+				F8975A90167CDA9B0093E19E /* Player.m in Sources */,
+				F8975A93167CDAFD0093E19E /* HumanPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +578,7 @@
 				F8975A76167CAD440093E19E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
