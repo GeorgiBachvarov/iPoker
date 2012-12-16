@@ -37,6 +37,9 @@
         if (self.options.startingMoney == 0){
             self.options.startingMoney = DEFAULT_PLAYER_MONEY;
         }
+        if (self.options.minimumBet == 0){
+            self.options.minimumBet = DEFAULT_MINIMUM_BET;
+        }
     }
     
     return self;

@@ -12,5 +12,6 @@
 
 @property (nonatomic, assign) NSUInteger moneyLimit;
 @property (nonatomic, assign) NSUInteger startingMoney;
+@property (nonatomic, assign) NSUInteger minimumBet;
 
 @end

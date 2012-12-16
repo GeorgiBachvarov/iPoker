@@ -25,10 +25,7 @@
     }else{
         HandStrength *handStrength = [self evaluateHand];
     }
-    
 
-    
-    
     return botAction;
 }
 
@@ -37,12 +34,12 @@
     Card *firstCard;
     Card *secondCard;
     
-    if ([[self.gameState.botHand objectAtIndex:1] rank] > [[self.gameState.botHand objectAtIndex:0] rank]){
-        firstCard = [self.gameState.botHand objectAtIndex:1];
-        secondCard = [self.gameState.botHand objectAtIndex:0];
+    if ([[cards objectAtIndex:1] rank] > [[cards objectAtIndex:0] rank]){
+        firstCard = [cards objectAtIndex:1];
+        secondCard = [cards objectAtIndex:0];
     }else{
-        firstCard = [self.gameState.botHand objectAtIndex:0];
-        secondCard = [self.gameState.botHand objectAtIndex:1];
+        firstCard = [cards objectAtIndex:0];
+        secondCard = [cards objectAtIndex:1];
     }
     
     switch (firstCard.rank) {
