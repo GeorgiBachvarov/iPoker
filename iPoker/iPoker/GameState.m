@@ -25,6 +25,23 @@
     return self;
 }
 
+- (id)initWithGameOptions:(GameOptions *)options{
+    
+    self = [self init];
+    
+    if (self){
+        self.options = options;
+        if (self.options.moneyLimit == 0){
+            self.options.moneyLimit = DEFAULT_MONEY_LIMIT;
+        }
+        if (self.options.startingMoney == 0){
+            self.options.startingMoney = DEFAULT_PLAYER_MONEY;
+        }
+    }
+    
+    return self;
+}
+
 - (void) getNewDeck{
     self.deck = [[NSMutableArray alloc] init];
     for (int suit = 0; suit < 4; suit++){

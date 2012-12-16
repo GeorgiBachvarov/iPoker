@@ -9,6 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "Card.h"
 #import "HandStrength.h"
+#import "PlayerAction.h"
+#import "GameOptions.h"
+
+#define DEFAULT_MONEY_LIMIT 1000
+#define DEFAULT_PLAYER_MONEY 5000
+
+typedef enum{
+    RoundBettingRound = 0,
+    RoundTheFlop = 1,
+    RoundTheTurn = 2,
+    RoundTheRiver = 3
+} Round;
 
 
 @interface GameState : NSObject
@@ -19,5 +31,8 @@
 @property (nonatomic, strong) NSMutableArray *botHand;
 @property (nonatomic, strong) NSMutableArray *communityCards;
 @property (nonatomic, assign) NSUInteger round;
+@property (nonatomic, retain) GameOptions *options;
+
+-(id)initWithGameOptions: (GameOptions *) options;
 
 @end

@@ -12,7 +12,11 @@
 @interface Player : NSObject
 
 @property (nonatomic, strong) GameState *gameState;
+@property (nonatomic, assign) NSUInteger *moneyLeft;
 
 -initWithGameState: (GameState *) state;
+- (HandStrength *) evaluateHand;
+-(NSArray *) availableCards;
+-(PlayerAction *) nextAction;
 
 @end

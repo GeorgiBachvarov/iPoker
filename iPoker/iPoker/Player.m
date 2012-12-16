@@ -11,19 +11,24 @@
 @implementation Player
 
 - (id)initWithGameState:(GameState *)state{
-    self = [super init];
+    self = [self init];
     if (self){
         self.gameState = state;
     }
     return self;
 }
 
+- (NSArray *)availableCards{
+    return  nil;
+}
+
+- (PlayerAction *)nextAction{
+    return nil;
+}
 
 - (HandStrength *) evaluateHand{
     
-    NSMutableArray *hand = [NSMutableArray array];
-    [hand addObjectsFromArray:self.gameState.botHand];
-    [hand addObjectsFromArray:self.gameState.communityCards];
+    NSArray *hand = [self availableCards];
     
     //read hand
     int numberOfCardsInSuit[4];

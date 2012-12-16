@@ -10,4 +10,12 @@
 
 @implementation HumanPlayer
 
+- (NSArray *)availableCards{
+    NSMutableArray *cards = [NSMutableArray array];
+    [cards addObjectsFromArray:self.gameState.communityCards];
+    [cards addObjectsFromArray:self.gameState.playerHand];
+    return cards;
+}
+
+
 @end

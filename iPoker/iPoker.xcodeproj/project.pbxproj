@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F8953AF7167E0EA600B70448 /* PlayerAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F8953AF6167E0EA600B70448 /* PlayerAction.m */; };
+		F8953AFB167E262100B70448 /* GameOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = F8953AFA167E262100B70448 /* GameOptions.m */; };
 		F8975A55167CAD440093E19E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8975A54167CAD440093E19E /* UIKit.framework */; };
 		F8975A57167CAD440093E19E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8975A56167CAD440093E19E /* Foundation.framework */; };
 		F8975A59167CAD440093E19E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8975A58167CAD440093E19E /* CoreGraphics.framework */; };
@@ -79,6 +81,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F8953AF5167E0EA500B70448 /* PlayerAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerAction.h; sourceTree = "<group>"; };
+		F8953AF6167E0EA600B70448 /* PlayerAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerAction.m; sourceTree = "<group>"; };
+		F8953AF9167E262100B70448 /* GameOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOptions.h; sourceTree = "<group>"; };
+		F8953AFA167E262100B70448 /* GameOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOptions.m; sourceTree = "<group>"; };
 		F8975A50167CAD440093E19E /* iPoker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPoker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8975A54167CAD440093E19E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F8975A56167CAD440093E19E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -242,12 +248,16 @@
 		F8975A7D167CB10E0093E19E /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				F8953AF9167E262100B70448 /* GameOptions.h */,
+				F8953AFA167E262100B70448 /* GameOptions.m */,
 				F8975A7E167CB2970093E19E /* GameState.h */,
 				F8975A7F167CB2970093E19E /* GameState.m */,
 				F8975A81167CB2F10093E19E /* Card.h */,
 				F8975A82167CB2F10093E19E /* Card.m */,
 				F8975A8B167CC4360093E19E /* HandStrength.h */,
 				F8975A8C167CC4360093E19E /* HandStrength.m */,
+				F8953AF5167E0EA500B70448 /* PlayerAction.h */,
+				F8953AF6167E0EA600B70448 /* PlayerAction.m */,
 				F8975A8E167CDA9B0093E19E /* Player.h */,
 				F8975A8F167CDA9B0093E19E /* Player.m */,
 				F8975A84167CC0430093E19E /* PokerBot.h */,
@@ -460,6 +470,8 @@
 				F8975A8D167CC4370093E19E /* HandStrength.m in Sources */,
 				F8975A90167CDA9B0093E19E /* Player.m in Sources */,
 				F8975A93167CDAFD0093E19E /* HumanPlayer.m in Sources */,
+				F8953AF7167E0EA600B70448 /* PlayerAction.m in Sources */,
+				F8953AFB167E262100B70448 /* GameOptions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

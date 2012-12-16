@@ -17,7 +17,7 @@
 }
 
 - (id)initWithRank:(CardRank)rank andSuit:(CardSuit)suit{
-    self = [super init];
+    self = [self init];
     if (self){
         self.rank = rank;
         self.suit = suit;
