@@ -17,11 +17,13 @@
 #define DEFAULT_PLAYER_MONEY 5000
 
 typedef enum{
-    RoundBettingRound = 0,
-    RoundTheFlop = 1,
-    RoundTheTurn = 2,
-    RoundTheRiver = 3
+    RoundPostingBlinds = 0,
+    RoundBettingRound = 1,
+    RoundTheFlop = 2,
+    RoundTheTurn = 3,
+    RoundTheRiver = 4
 } Round;
+
 
 
 @interface GameState : NSObject
@@ -35,7 +37,10 @@ typedef enum{
 @property (nonatomic, retain) GameOptions *options;
 @property (nonatomic, assign) NSUInteger currentPot;
 @property (nonatomic, assign) NSUInteger currentRaise;
+@property (nonatomic, assign) BOOL playerIsDealer;
 
 -(id)initWithGameOptions: (GameOptions *) options;
+- (void) finalizeGame;
+- (void) prepareForNextGame;
 
 @end

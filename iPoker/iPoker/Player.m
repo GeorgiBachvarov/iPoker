@@ -14,6 +14,7 @@
     self = [self init];
     if (self){
         self.gameState = state;
+        self.moneyLeft = state.options.startingMoney;
     }
     return self;
 }

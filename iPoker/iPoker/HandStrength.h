@@ -26,5 +26,6 @@ typedef enum{
 
 @property (nonatomic, assign) HandRanking handRanking;
 @property (nonatomic, assign) CardRank highCard;
+- (NSInteger) compareTo: (HandStrength *) otherHand;
 
 @end

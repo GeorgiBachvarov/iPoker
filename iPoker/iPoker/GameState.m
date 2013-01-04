@@ -14,7 +14,7 @@
 {
     self = [super init];
     if (self) {
-        
+        self.playerIsDealer = YES;
         self.playerHand = [[NSMutableArray alloc] init];
         self.botHand = [[NSMutableArray alloc] init];
         self.communityCards = [[NSMutableArray alloc] init];
@@ -66,6 +66,22 @@
         NSInteger n = (arc4random() % nElements) + i;
         [self.deck exchangeObjectAtIndex:i withObjectAtIndex:n];
     }
+}
+
+- (void)finalizeGame{
+    
+}
+
+- (void)prepareForNextGame{
+    [self getNewDeck];
+    [self shuffleDeck];
+    [self.playerHand removeAllObjects];
+    [self.botHand removeAllObjects];
+    [self.communityCards removeAllObjects];
+    self.round = RoundPostingBlinds;
+    self.currentPot = 0;
+    self.currentRaise = 0;
+    self.playerIsDealer = !self.playerIsDealer;
 }
 
 @end

@@ -8,7 +8,23 @@
 
 #import "PokerBot.h"
 
+@interface PokerBot (){
+    
+}
+
+@property (nonatomic, assign) CGFloat aggression;
+
+@end
+
 @implementation PokerBot
+
+- (id)init {
+    self = [super init];
+    if (self){
+        self.aggression = 0.5;
+    }
+    return self;
+}
 
 - (NSArray *)availableCards{
     NSMutableArray *cards = [NSMutableArray array];
@@ -20,12 +36,41 @@
 - (PlayerAction *)nextAction{
     PlayerAction *botAction = [[PlayerAction alloc] init];
     
+    //posting blinds
+    if (self.gameState.round == RoundPostingBlinds){
+        if (self.isDealer){
+            if (self.moneyLeft >= self.gameState.options.minimumBet / 2){
+                botAction.action = ActionPostBlind;
+                botAction.amount = self.gameState.options.minimumBet / 2;
+            }else{
+                botAction.action = ActionPostBlind;
+                botAction.amount = 0;
+            }
+        }else{
+            if (self.moneyLeft >= self.gameState.options.minimumBet){
+                botAction.action = ActionPostBlind;
+                botAction.amount = self.gameState.options.minimumBet;
+            }else{
+                botAction.action = ActionPostBlind;
+                botAction.amount = 0;
+            }
+        }
+    }
+    
+    //initial betting round (when there are no community cards on the table)
     if (self.gameState.round == RoundBettingRound){
         CGFloat objectiveWinCoefficient = [self initialWinCoefficient];
-    }else{
+        
+        if (objectiveWinCoefficient > 0.5){
+//            NSUInteger raise = 
+        }
+    }
+    
+    //any of the other three rounds Flop/Turn/River
+    if (self.gameState.round > RoundBettingRound){
         HandStrength *handStrength = [self evaluateHand];
     }
-
+    
     return botAction;
 }
 
