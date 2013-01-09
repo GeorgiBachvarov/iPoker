@@ -100,4 +100,8 @@
     return [NSString stringWithFormat:@"%@ Of %@", rankString, suitString];
 }
 
++ (UIImage *)cardBack{
+    return [UIImage imageNamed:@"playingCardBack"];
+}
+
 @end

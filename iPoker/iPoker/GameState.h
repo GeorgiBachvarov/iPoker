@@ -11,6 +11,7 @@
 #import "HandStrength.h"
 #import "PlayerAction.h"
 #import "GameOptions.h"
+#import "GameStateDelegate.h"
 
 #define DEFAULT_MONEY_LIMIT 1000
 #define DEFAULT_MINIMUM_BET 100
@@ -39,7 +40,12 @@ typedef enum{
 @property (nonatomic, assign) NSUInteger currentRaise;
 @property (nonatomic, assign) BOOL playerIsDealer;
 
--(id)initWithGameOptions: (GameOptions *) options;
+@property (nonatomic, assign) id <GameStateDelegate> player;
+@property (nonatomic, assign) id <GameStateDelegate> bot;
+
+- (id) initWithGameOptions: (GameOptions *) options;
+- (void) getNewDeck;
+- (void) shuffleDeck;
 - (void) finalizeGame;
 - (void) prepareForNextGame;
 

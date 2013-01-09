@@ -18,8 +18,6 @@
 		F8975A67167CAD440093E19E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975A66167CAD440093E19E /* Default.png */; };
 		F8975A69167CAD440093E19E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975A68167CAD440093E19E /* Default@2x.png */; };
 		F8975A6B167CAD440093E19E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975A6A167CAD440093E19E /* Default-568h@2x.png */; };
-		F8975A6E167CAD440093E19E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8975A6D167CAD440093E19E /* ViewController.m */; };
-		F8975A71167CAD440093E19E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8975A6F167CAD440093E19E /* ViewController.xib */; };
 		F8975A80167CB2970093E19E /* GameState.m in Sources */ = {isa = PBXBuildFile; fileRef = F8975A7F167CB2970093E19E /* GameState.m */; };
 		F8975A83167CB2F10093E19E /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = F8975A82167CB2F10093E19E /* Card.m */; };
 		F8975A86167CC0430093E19E /* PokerBot.m in Sources */ = {isa = PBXBuildFile; fileRef = F8975A85167CC0430093E19E /* PokerBot.m */; };
@@ -78,6 +76,17 @@
 		F8975B1A167CE6B60093E19E /* 10 Of Diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AD7167CE6B60093E19E /* 10 Of Diamonds.png */; };
 		F8975B1B167CE6B60093E19E /* 10 Of Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AD8167CE6B60093E19E /* 10 Of Hearts.png */; };
 		F8975B1C167CE6B60093E19E /* 10 Of Spades.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AD9167CE6B60093E19E /* 10 Of Spades.png */; };
+		F89ECA46169DABAE00A17352 /* RaiseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89ECA45169DABAE00A17352 /* RaiseViewController.m */; };
+		F8E5AD9F169C587B006B74D4 /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E5AD9D169C587B006B74D4 /* MainScreenViewController.m */; };
+		F8E5ADA0169C587B006B74D4 /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8E5AD9E169C587B006B74D4 /* MainScreenViewController.xib */; };
+		F8E5ADA5169C5BD2006B74D4 /* GameScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E5ADA3169C5BD2006B74D4 /* GameScreenViewController.m */; };
+		F8E5ADA6169C5BD2006B74D4 /* GameScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8E5ADA4169C5BD2006B74D4 /* GameScreenViewController.xib */; };
+		F8E5ADAB169C5E5D006B74D4 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E5ADAA169C5E5D006B74D4 /* CardView.m */; };
+		F8E5ADAD169C7382006B74D4 /* lightbluetable.png in Resources */ = {isa = PBXBuildFile; fileRef = F8E5ADAC169C7382006B74D4 /* lightbluetable.png */; };
+		F8E5ADAF169C74C2006B74D4 /* poker-card-dice-board.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F8E5ADAE169C74C2006B74D4 /* poker-card-dice-board.jpg */; };
+		F8E5ADB3169C78C9006B74D4 /* playingCardBack.png in Resources */ = {isa = PBXBuildFile; fileRef = F8E5ADB2169C78C9006B74D4 /* playingCardBack.png */; };
+		F8E5ADB5169C7DF3006B74D4 /* deck-4.png in Resources */ = {isa = PBXBuildFile; fileRef = F8E5ADB4169C7DF3006B74D4 /* deck-4.png */; };
+		F8E5ADB7169C8497006B74D4 /* chipStack.png in Resources */ = {isa = PBXBuildFile; fileRef = F8E5ADB6169C8497006B74D4 /* chipStack.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +94,7 @@
 		F8953AF6167E0EA600B70448 /* PlayerAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerAction.m; sourceTree = "<group>"; };
 		F8953AF9167E262100B70448 /* GameOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOptions.h; sourceTree = "<group>"; };
 		F8953AFA167E262100B70448 /* GameOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOptions.m; sourceTree = "<group>"; };
+		F896556D169B17260000FA6F /* GameStateDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameStateDelegate.h; sourceTree = "<group>"; };
 		F8975A50167CAD440093E19E /* iPoker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPoker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8975A54167CAD440093E19E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F8975A56167CAD440093E19E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -98,9 +108,6 @@
 		F8975A66167CAD440093E19E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		F8975A68167CAD440093E19E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		F8975A6A167CAD440093E19E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		F8975A6C167CAD440093E19E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F8975A6D167CAD440093E19E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		F8975A70167CAD440093E19E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		F8975A7E167CB2970093E19E /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
 		F8975A7F167CB2970093E19E /* GameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameState.m; sourceTree = "<group>"; };
 		F8975A81167CB2F10093E19E /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
@@ -165,6 +172,21 @@
 		F8975AD7167CE6B60093E19E /* 10 Of Diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "10 Of Diamonds.png"; sourceTree = "<group>"; };
 		F8975AD8167CE6B60093E19E /* 10 Of Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "10 Of Hearts.png"; sourceTree = "<group>"; };
 		F8975AD9167CE6B60093E19E /* 10 Of Spades.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "10 Of Spades.png"; sourceTree = "<group>"; };
+		F89ECA44169DABAE00A17352 /* RaiseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaiseViewController.h; sourceTree = "<group>"; };
+		F89ECA45169DABAE00A17352 /* RaiseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RaiseViewController.m; sourceTree = "<group>"; };
+		F8E5AD9C169C587B006B74D4 /* MainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenViewController.h; sourceTree = "<group>"; };
+		F8E5AD9D169C587B006B74D4 /* MainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenViewController.m; sourceTree = "<group>"; };
+		F8E5AD9E169C587B006B74D4 /* MainScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainScreenViewController.xib; sourceTree = "<group>"; };
+		F8E5ADA2169C5BD2006B74D4 /* GameScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScreenViewController.h; sourceTree = "<group>"; };
+		F8E5ADA3169C5BD2006B74D4 /* GameScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScreenViewController.m; sourceTree = "<group>"; };
+		F8E5ADA4169C5BD2006B74D4 /* GameScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameScreenViewController.xib; sourceTree = "<group>"; };
+		F8E5ADA9169C5E5D006B74D4 /* CardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
+		F8E5ADAA169C5E5D006B74D4 /* CardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
+		F8E5ADAC169C7382006B74D4 /* lightbluetable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightbluetable.png; sourceTree = "<group>"; };
+		F8E5ADAE169C74C2006B74D4 /* poker-card-dice-board.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "poker-card-dice-board.jpg"; sourceTree = "<group>"; };
+		F8E5ADB2169C78C9006B74D4 /* playingCardBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playingCardBack.png; sourceTree = "<group>"; };
+		F8E5ADB4169C7DF3006B74D4 /* deck-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deck-4.png"; sourceTree = "<group>"; };
+		F8E5ADB6169C8497006B74D4 /* chipStack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chipStack.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,9 +260,8 @@
 		F8975A7B167CB1070093E19E /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				F8975A6C167CAD440093E19E /* ViewController.h */,
-				F8975A6D167CAD440093E19E /* ViewController.m */,
-				F8975A6F167CAD440093E19E /* ViewController.xib */,
+				F8E5ADA8169C5E46006B74D4 /* Views */,
+				F8E5ADA7169C5BEF006B74D4 /* ViewControllers */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -252,6 +273,7 @@
 				F8953AFA167E262100B70448 /* GameOptions.m */,
 				F8975A7E167CB2970093E19E /* GameState.h */,
 				F8975A7F167CB2970093E19E /* GameState.m */,
+				F896556D169B17260000FA6F /* GameStateDelegate.h */,
 				F8975A81167CB2F10093E19E /* Card.h */,
 				F8975A82167CB2F10093E19E /* Card.m */,
 				F8975A8B167CC4360093E19E /* HandStrength.h */,
@@ -279,6 +301,11 @@
 		F8975A95167CE6350093E19E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F8E5ADB6169C8497006B74D4 /* chipStack.png */,
+				F8E5ADB4169C7DF3006B74D4 /* deck-4.png */,
+				F8E5ADB2169C78C9006B74D4 /* playingCardBack.png */,
+				F8E5ADAC169C7382006B74D4 /* lightbluetable.png */,
+				F8E5ADAE169C74C2006B74D4 /* poker-card-dice-board.jpg */,
 				F8975A96167CE6480093E19E /* Cards */,
 			);
 			name = Images;
@@ -343,6 +370,30 @@
 			name = Cards;
 			sourceTree = "<group>";
 		};
+		F8E5ADA7169C5BEF006B74D4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F8E5AD9C169C587B006B74D4 /* MainScreenViewController.h */,
+				F8E5AD9D169C587B006B74D4 /* MainScreenViewController.m */,
+				F8E5AD9E169C587B006B74D4 /* MainScreenViewController.xib */,
+				F8E5ADA2169C5BD2006B74D4 /* GameScreenViewController.h */,
+				F8E5ADA3169C5BD2006B74D4 /* GameScreenViewController.m */,
+				F8E5ADA4169C5BD2006B74D4 /* GameScreenViewController.xib */,
+				F89ECA44169DABAE00A17352 /* RaiseViewController.h */,
+				F89ECA45169DABAE00A17352 /* RaiseViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F8E5ADA8169C5E46006B74D4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F8E5ADA9169C5E5D006B74D4 /* CardView.h */,
+				F8E5ADAA169C5E5D006B74D4 /* CardView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -398,7 +449,6 @@
 				F8975A67167CAD440093E19E /* Default.png in Resources */,
 				F8975A69167CAD440093E19E /* Default@2x.png in Resources */,
 				F8975A6B167CAD440093E19E /* Default-568h@2x.png in Resources */,
-				F8975A71167CAD440093E19E /* ViewController.xib in Resources */,
 				F8975ADA167CE6B60093E19E /* 9 Of Clubs.png in Resources */,
 				F8975ADB167CE6B60093E19E /* 9 Of Diamonds.png in Resources */,
 				F8975ADC167CE6B60093E19E /* 9 Of Hearts.png in Resources */,
@@ -451,6 +501,13 @@
 				F8975B1A167CE6B60093E19E /* 10 Of Diamonds.png in Resources */,
 				F8975B1B167CE6B60093E19E /* 10 Of Hearts.png in Resources */,
 				F8975B1C167CE6B60093E19E /* 10 Of Spades.png in Resources */,
+				F8E5ADA0169C587B006B74D4 /* MainScreenViewController.xib in Resources */,
+				F8E5ADA6169C5BD2006B74D4 /* GameScreenViewController.xib in Resources */,
+				F8E5ADAD169C7382006B74D4 /* lightbluetable.png in Resources */,
+				F8E5ADAF169C74C2006B74D4 /* poker-card-dice-board.jpg in Resources */,
+				F8E5ADB3169C78C9006B74D4 /* playingCardBack.png in Resources */,
+				F8E5ADB5169C7DF3006B74D4 /* deck-4.png in Resources */,
+				F8E5ADB7169C8497006B74D4 /* chipStack.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,7 +520,6 @@
 			files = (
 				F8975A61167CAD440093E19E /* main.m in Sources */,
 				F8975A65167CAD440093E19E /* AppDelegate.m in Sources */,
-				F8975A6E167CAD440093E19E /* ViewController.m in Sources */,
 				F8975A80167CB2970093E19E /* GameState.m in Sources */,
 				F8975A83167CB2F10093E19E /* Card.m in Sources */,
 				F8975A86167CC0430093E19E /* PokerBot.m in Sources */,
@@ -472,6 +528,10 @@
 				F8975A93167CDAFD0093E19E /* HumanPlayer.m in Sources */,
 				F8953AF7167E0EA600B70448 /* PlayerAction.m in Sources */,
 				F8953AFB167E262100B70448 /* GameOptions.m in Sources */,
+				F8E5AD9F169C587B006B74D4 /* MainScreenViewController.m in Sources */,
+				F8E5ADA5169C5BD2006B74D4 /* GameScreenViewController.m in Sources */,
+				F8E5ADAB169C5E5D006B74D4 /* CardView.m in Sources */,
+				F89ECA46169DABAE00A17352 /* RaiseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,14 +544,6 @@
 				F8975A5E167CAD440093E19E /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		F8975A6F167CAD440093E19E /* ViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F8975A70167CAD440093E19E /* en */,
-			);
-			name = ViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

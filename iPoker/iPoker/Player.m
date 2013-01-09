@@ -10,6 +10,10 @@
 
 @implementation Player
 
+- (void)gameEndedWithResult:(BOOL)win balance:(NSInteger)money{
+    
+}
+
 - (id)initWithGameState:(GameState *)state{
     self = [self init];
     if (self){
@@ -23,13 +27,8 @@
     return  nil;
 }
 
-- (PlayerAction *)nextAction{
-    return nil;
-}
 
-- (HandStrength *) evaluateHand{
-    
-    NSArray *hand = [self availableCards];
+- (HandStrength *) evaluateHand: (NSArray *) hand{
     
     //read hand
     int numberOfCardsInSuit[4];

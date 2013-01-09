@@ -11,4 +11,6 @@
 
 @interface HumanPlayer : Player
 
+- (PlayerAction *) placeBlind;
+
 @end

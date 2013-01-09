@@ -8,16 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "GameState.h"
+#import "GameStateDelegate.h"
 
-@interface Player : NSObject
+@interface Player : NSObject <GameStateDelegate>
 
 @property (nonatomic, strong) GameState *gameState;
 @property (nonatomic, assign) NSUInteger moneyLeft;
 @property (nonatomic, assign) BOOL isDealer;
 
 -initWithGameState: (GameState *) state;
-- (HandStrength *) evaluateHand;
+- (HandStrength *) evaluateHand: (NSArray *) hand;
 -(NSArray *) availableCards;
--(PlayerAction *) nextAction;
 
 @end

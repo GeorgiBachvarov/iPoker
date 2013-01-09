@@ -17,5 +17,36 @@
     return cards;
 }
 
+- (PlayerAction *)placeBlind{
+    
+    PlayerAction *blindAction = [[PlayerAction alloc] init];
+    blindAction.action = ActionPostBlind;
+    
+    if (self.isDealer){
+        if (self.moneyLeft >= self.gameState.options.minimumBet / 2){
+            blindAction.amount = self.gameState.options.minimumBet / 2;
+        }else{
+            blindAction.amount = 0;
+            NSLog(@"Minimum bet: %d, money left: %d. Cannot post blind", self.gameState.options.minimumBet, self.moneyLeft);
+        }
+    }else{
+        if (self.moneyLeft >= self.gameState.options.minimumBet){
+            blindAction.amount = self.gameState.options.minimumBet;
+        }else{
+            blindAction.amount = 0;
+            NSLog(@"Minimum bet: %d, money left: %d. Cannot post blind", self.gameState.options.minimumBet, self.moneyLeft);
+        }
+    }
+    
+    return blindAction;
+}
+
+- (id)initWithGameState:(GameState *)state{
+    self = [super initWithGameState:state];
+    if (self){
+        state.player = self;
+    }
+    return self;
+}
 
 @end

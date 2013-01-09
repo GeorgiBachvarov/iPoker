@@ -18,10 +18,11 @@
 
 @implementation PokerBot
 
-- (id)init {
-    self = [super init];
+- (id)initWithGameState:(GameState *)state {
+    self = [super initWithGameState:state];
     if (self){
         self.aggression = 0.5;
+        state.bot = self;
     }
     return self;
 }
@@ -45,6 +46,7 @@
             }else{
                 botAction.action = ActionPostBlind;
                 botAction.amount = 0;
+                NSLog(@"Minimum bet: %d, money left: %d. Cannot post blind", self.gameState.options.minimumBet, self.moneyLeft);
             }
         }else{
             if (self.moneyLeft >= self.gameState.options.minimumBet){
@@ -53,25 +55,162 @@
             }else{
                 botAction.action = ActionPostBlind;
                 botAction.amount = 0;
+                NSLog(@"Minimum bet: %d, money left: %d. Cannot post blind", self.gameState.options.minimumBet, self.moneyLeft);
             }
         }
     }
     
     //initial betting round (when there are no community cards on the table)
     if (self.gameState.round == RoundBettingRound){
+        
         CGFloat objectiveWinCoefficient = [self initialWinCoefficient];
         
         if (objectiveWinCoefficient > 0.5){
-//            NSUInteger raise = 
+            
+            botAction.action = ActionRaise;
+            
+            NSUInteger amountToRaise = self.gameState.currentRaise + (uint)(self.aggression * (float)self.gameState.currentRaise);
+            
+            if (amountToRaise > self.moneyLeft){
+                amountToRaise = self.moneyLeft;
+            }
+            
+            if (amountToRaise > self.gameState.options.moneyLimit){
+                amountToRaise = self.gameState.options.moneyLimit;
+            }
+            
+            botAction.amount = amountToRaise;
+            
+        }else{
+            
+            if (objectiveWinCoefficient + self.aggression > 1){
+                
+                botAction.action = ActionRaise;
+                
+                NSUInteger amountToRaise = self.gameState.currentRaise + (uint)(self.aggression * (float)self.gameState.currentRaise);
+                
+                if (amountToRaise > self.moneyLeft){
+                    amountToRaise = self.moneyLeft;
+                }
+                
+                if (amountToRaise > self.gameState.options.moneyLimit){
+                    amountToRaise = self.gameState.options.moneyLimit;
+                }
+                
+                botAction.amount = amountToRaise;
+                
+                
+            }else if (objectiveWinCoefficient + self.aggression > 0.85){
+                botAction.action = ActionCall;
+                botAction.amount = self.gameState.currentRaise;
+            }else{
+                botAction.action = ActionFold;
+                botAction.amount = self.gameState.currentPot;
+            }
         }
     }
     
     //any of the other three rounds Flop/Turn/River
     if (self.gameState.round > RoundBettingRound){
-        HandStrength *handStrength = [self evaluateHand];
+        HandStrength *handStrength = [self evaluateHand: [self availableCards]];
+        CGFloat handStrengthCoefficient = [self handStrengthCoefficient:handStrength forRound:self.gameState.round];
+        
+        if (handStrengthCoefficient + self.aggression > 1){
+            
+            botAction.action = ActionRaise;
+            
+            NSUInteger amountToRaise = self.gameState.currentRaise + (uint)(self.aggression * (float)self.gameState.currentRaise);
+            
+            if (amountToRaise > self.moneyLeft){
+                amountToRaise = self.moneyLeft;
+            }
+            
+            if (amountToRaise > self.gameState.options.moneyLimit){
+                amountToRaise = self.gameState.options.moneyLimit;
+            }
+            
+            botAction.amount = amountToRaise;
+            
+        }else{
+            
+            if (handStrengthCoefficient + self.aggression > 1){
+                
+                botAction.action = ActionRaise;
+                
+                NSUInteger amountToRaise = self.gameState.currentRaise + (uint)(self.aggression * (float)self.gameState.currentRaise);
+                
+                if (amountToRaise > self.moneyLeft){
+                    amountToRaise = self.moneyLeft;
+                }
+                
+                if (amountToRaise > self.gameState.options.moneyLimit){
+                    amountToRaise = self.gameState.options.moneyLimit;
+                }
+                
+                botAction.amount = amountToRaise;
+                
+                
+            }else if (handStrengthCoefficient + self.aggression > 0.85){
+                botAction.action = ActionCall;
+                botAction.amount = self.gameState.currentRaise;
+            }else{
+                botAction.action = ActionFold;
+                botAction.amount = self.gameState.currentPot;
+            }
+            
+        }
+    }
+    
+    if (botAction.amount > self.moneyLeft){
+        //indicates the bot is out of money and can't continue - happens only when forced to fold or call
+        botAction.action = ActionFold;
+        botAction.amount = 0;
     }
     
     return botAction;
+}
+
+- (CGFloat) handStrengthCoefficient: (HandStrength *) handStrength forRound:(Round) round{
+    CGFloat strength = (float)(4 - round) / 5;
+    
+    switch (handStrength.handRanking) {
+        case HandRankingNone:
+            strength += 0.05;
+            break;
+        case HandRankingOnePair:
+            strength += 0.1;
+            break;
+        case HandRankingTwoPair:
+            strength += 0.2;
+            break;
+        case HandRankingThreeOfAKind:
+            strength += 0.32;
+            break;
+        case HandRankingStraight:
+            strength += 0.44;
+            break;
+        case HandRankingFlush:
+            strength += 0.56;
+            break;
+        case HandRankingFullHouse:
+            strength += 0.68;
+            break;
+        case HandRankingFourOfAKind:
+            strength += 0.8;
+            break;
+        case HandRankingStraightFlush:
+            strength += 0.88;
+            break;
+        case HandRankingRoyalFlush:
+            strength += 0.88;
+            break;
+        default:
+            break;
+    }
+    
+    strength += (float)handStrength.highCard  /  100;
+    
+    return strength;
 }
 
 - (CGFloat) initialWinCoefficient{
@@ -572,6 +711,21 @@
             return 0;
     }
     
+}
+
+- (void)gameEndedWithResult:(BOOL)win balance:(NSInteger)money{
+    
+    self.moneyLeft += money;
+    
+    if (!win){
+        HandStrength *playerHand = [self evaluateHand:self.gameState.playerHand];
+        HandStrength *botHand = [self evaluateHand:self.gameState.botHand];
+        if ([playerHand compareTo:botHand] < 0){
+            self.aggression += (1 - self.aggression) / 5.0f;
+        }else{
+            self.aggression -= (1 - self.aggression) / 5.0f;
+        }
+    }
 }
 
 @end

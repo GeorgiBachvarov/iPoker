@@ -11,6 +11,7 @@
 
 @interface PokerBot : Player
 
-
+- (CGFloat) handStrengthCoefficient: (HandStrength *) handStrength forRound:(Round) round;
+-(PlayerAction *) nextAction;
 
 @end

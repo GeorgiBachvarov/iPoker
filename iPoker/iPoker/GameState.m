@@ -40,6 +40,8 @@
         if (self.options.minimumBet == 0){
             self.options.minimumBet = DEFAULT_MINIMUM_BET;
         }
+        
+        self.playerIsDealer = YES;
     }
     
     return self;

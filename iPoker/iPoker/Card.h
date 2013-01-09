@@ -36,6 +36,7 @@ typedef enum{
 @property (nonatomic, assign) CardRank rank;
 @property (nonatomic, assign) CardSuit suit;
 
++ (UIImage *) cardBack;
 - (UIImage *) visualRepresentation;
 - (id)initWithRank: (CardRank) rank andSuit: (CardSuit) suit;
 + cardWithRank: (CardRank) rank andSuit: (CardSuit) suit;
