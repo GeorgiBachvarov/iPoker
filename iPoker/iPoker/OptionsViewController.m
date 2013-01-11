@@ -54,6 +54,10 @@
     self.minimumBetLabel.text = [NSString stringWithFormat:@"Minimum Bet: $ %d", self.minimumBet];
     self.maximumBetLabel.text = [NSString stringWithFormat:@"Maximum Bet: $ %d", self.maximumBet];
     self.startingMoneyLabel.text = [NSString stringWithFormat:@"Starting Money: $ %d", self.playerMoney];
+    
+    UITapGestureRecognizer *viewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(playerNameTextFiledDidEndEditing:)];
+    
+    [self.view addGestureRecognizer:viewTap];
 }
 
 - (void)didReceiveMemoryWarning
