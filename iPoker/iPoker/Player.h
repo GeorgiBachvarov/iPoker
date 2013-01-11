@@ -14,7 +14,6 @@
 
 @property (nonatomic, strong) GameState *gameState;
 @property (nonatomic, assign) NSUInteger moneyLeft;
-@property (nonatomic, assign) BOOL isDealer;
 
 -initWithGameState: (GameState *) state;
 - (HandStrength *) evaluateHand: (NSArray *) hand;

@@ -10,6 +10,7 @@
 
 @implementation HumanPlayer
 
+
 - (NSArray *)availableCards{
     NSMutableArray *cards = [NSMutableArray array];
     [cards addObjectsFromArray:self.gameState.communityCards];
@@ -22,7 +23,7 @@
     PlayerAction *blindAction = [[PlayerAction alloc] init];
     blindAction.action = ActionPostBlind;
     
-    if (self.isDealer){
+    if (self.gameState.playerIsDealer){
         if (self.moneyLeft >= self.gameState.options.minimumBet / 2){
             blindAction.amount = self.gameState.options.minimumBet / 2;
         }else{
@@ -45,6 +46,7 @@
     self = [super initWithGameState:state];
     if (self){
         state.player = self;
+        self.name = self.gameState.options.playerName;
     }
     return self;
 }

@@ -12,7 +12,9 @@
 #import "PokerBot.h"
 #import "RaiseViewController.h"
 
-@interface GameScreenViewController : UIViewController <RaiseViewControllerDelegate>
+@interface GameScreenViewController : UIViewController <RaiseViewControllerDelegate, UIAlertViewDelegate>
+
+- initWithGameOptions: (GameOptions *) gameOptions;
 
 @property (nonatomic, strong) GameState *gameState;
 @property (nonatomic, strong) HumanPlayer *player;
@@ -27,13 +29,16 @@
 @property (weak, nonatomic) IBOutlet UIImageView *thirdCommunityCard;
 @property (weak, nonatomic) IBOutlet UIImageView *forthCommunityCard;
 @property (weak, nonatomic) IBOutlet UIImageView *fifthCommunityCard;
-@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *moneyLeftLabel;
 @property (weak, nonatomic) IBOutlet UILabel *botMoneyLeftLabel;
 @property (weak, nonatomic) IBOutlet UILabel *potLabel;
+@property (weak, nonatomic) IBOutlet UILabel *logLabel;
+@property (weak, nonatomic) IBOutlet UILabel *playerNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *callButton;
 @property (weak, nonatomic) IBOutlet UIButton *raiseButton;
 @property (weak, nonatomic) IBOutlet UIButton *foldButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextGameButton;
+@property (weak, nonatomic) IBOutlet UIButton *allInButton;
 
 @property (nonatomic, strong) NSArray *viewsForPlayerCards;
 @property (nonatomic, strong) NSArray *viewsForBotCards;
@@ -43,6 +48,8 @@
 - (IBAction)callButtonPressed:(id)sender;
 - (IBAction)raiseButtonPressed:(id)sender;
 - (IBAction)foldButtonPressed:(id)sender;
+- (IBAction)nextGameButtonPressed:(id)sender;
+- (IBAction)allInButtonPressed:(id)sender;
 
 - (void)raiseViewController:(RaiseViewController *)raiseViewController didChooseSum:(NSUInteger)sum;
 

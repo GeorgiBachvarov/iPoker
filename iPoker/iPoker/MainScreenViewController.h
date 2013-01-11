@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameScreenViewController.h"
+#import "OptionsViewController.h"
 
-@interface MainScreenViewController : UIViewController
+@interface MainScreenViewController : UIViewController <OptionsViewControllerDelegate>
 
 - (IBAction)startGameButtonPressed:(id)sender;
+- (IBAction)optionsButtonPressed:(id)sender;
+
+@property (nonatomic, strong) GameOptions *gameOptions;
 
 @end

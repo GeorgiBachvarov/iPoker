@@ -40,6 +40,9 @@
         if (self.options.minimumBet == 0){
             self.options.minimumBet = DEFAULT_MINIMUM_BET;
         }
+        if (self.options.playerName == nil){
+            self.options.playerName = DEFAULT_PLAYER_NAME;
+        }
         
         self.playerIsDealer = YES;
     }
@@ -84,6 +87,8 @@
     self.currentPot = 0;
     self.currentRaise = 0;
     self.playerIsDealer = !self.playerIsDealer;
+    self.playerIsAllIn = NO;
+    self.botIsAllIn = NO;
 }
 
 @end

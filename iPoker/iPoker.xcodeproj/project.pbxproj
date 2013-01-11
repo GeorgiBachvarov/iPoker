@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F895194F16A0282C00AA505B /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F895194D16A0282C00AA505B /* OptionsViewController.m */; };
+		F895195016A0282C00AA505B /* OptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F895194E16A0282C00AA505B /* OptionsViewController.xib */; };
+		F895195316A028BB00AA505B /* spadesxclubsbackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F895195216A028BB00AA505B /* spadesxclubsbackground.jpg */; };
 		F8953AF7167E0EA600B70448 /* PlayerAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F8953AF6167E0EA600B70448 /* PlayerAction.m */; };
 		F8953AFB167E262100B70448 /* GameOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = F8953AFA167E262100B70448 /* GameOptions.m */; };
 		F8975A55167CAD440093E19E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8975A54167CAD440093E19E /* UIKit.framework */; };
@@ -37,7 +40,7 @@
 		F8975AE8167CE6B60093E19E /* Jack Of Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AA5167CE6B60093E19E /* Jack Of Hearts.png */; };
 		F8975AEA167CE6B60093E19E /* Jack Of Spades.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AA7167CE6B60093E19E /* Jack Of Spades.png */; };
 		F8975AEC167CE6B60093E19E /* King Of Clubs.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AA9167CE6B60093E19E /* King Of Clubs.png */; };
-		F8975AEE167CE6B60093E19E /* Kind Of Diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AAB167CE6B60093E19E /* Kind Of Diamonds.png */; };
+		F8975AEE167CE6B60093E19E /* King Of Diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AAB167CE6B60093E19E /* King Of Diamonds.png */; };
 		F8975AF0167CE6B60093E19E /* King Of Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AAD167CE6B60093E19E /* King Of Hearts.png */; };
 		F8975AF2167CE6B60093E19E /* King Of Spades.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AAF167CE6B60093E19E /* King Of Spades.png */; };
 		F8975AF4167CE6B60093E19E /* Queen Of Clubs.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AB1167CE6B60093E19E /* Queen Of Clubs.png */; };
@@ -90,6 +93,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F895194C16A0282C00AA505B /* OptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsViewController.h; sourceTree = "<group>"; };
+		F895194D16A0282C00AA505B /* OptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsViewController.m; sourceTree = "<group>"; };
+		F895194E16A0282C00AA505B /* OptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsViewController.xib; sourceTree = "<group>"; };
+		F895195216A028BB00AA505B /* spadesxclubsbackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spadesxclubsbackground.jpg; sourceTree = "<group>"; };
 		F8953AF5167E0EA500B70448 /* PlayerAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerAction.h; sourceTree = "<group>"; };
 		F8953AF6167E0EA600B70448 /* PlayerAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerAction.m; sourceTree = "<group>"; };
 		F8953AF9167E262100B70448 /* GameOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOptions.h; sourceTree = "<group>"; };
@@ -133,7 +140,7 @@
 		F8975AA5167CE6B60093E19E /* Jack Of Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jack Of Hearts.png"; sourceTree = "<group>"; };
 		F8975AA7167CE6B60093E19E /* Jack Of Spades.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jack Of Spades.png"; sourceTree = "<group>"; };
 		F8975AA9167CE6B60093E19E /* King Of Clubs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "King Of Clubs.png"; sourceTree = "<group>"; };
-		F8975AAB167CE6B60093E19E /* Kind Of Diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Kind Of Diamonds.png"; sourceTree = "<group>"; };
+		F8975AAB167CE6B60093E19E /* King Of Diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "King Of Diamonds.png"; sourceTree = "<group>"; };
 		F8975AAD167CE6B60093E19E /* King Of Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "King Of Hearts.png"; sourceTree = "<group>"; };
 		F8975AAF167CE6B60093E19E /* King Of Spades.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "King Of Spades.png"; sourceTree = "<group>"; };
 		F8975AB1167CE6B60093E19E /* Queen Of Clubs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Queen Of Clubs.png"; sourceTree = "<group>"; };
@@ -306,6 +313,7 @@
 				F8E5ADB2169C78C9006B74D4 /* playingCardBack.png */,
 				F8E5ADAC169C7382006B74D4 /* lightbluetable.png */,
 				F8E5ADAE169C74C2006B74D4 /* poker-card-dice-board.jpg */,
+				F895195216A028BB00AA505B /* spadesxclubsbackground.jpg */,
 				F8975A96167CE6480093E19E /* Cards */,
 			);
 			name = Images;
@@ -327,7 +335,7 @@
 				F8975AA5167CE6B60093E19E /* Jack Of Hearts.png */,
 				F8975AA7167CE6B60093E19E /* Jack Of Spades.png */,
 				F8975AA9167CE6B60093E19E /* King Of Clubs.png */,
-				F8975AAB167CE6B60093E19E /* Kind Of Diamonds.png */,
+				F8975AAB167CE6B60093E19E /* King Of Diamonds.png */,
 				F8975AAD167CE6B60093E19E /* King Of Hearts.png */,
 				F8975AAF167CE6B60093E19E /* King Of Spades.png */,
 				F8975AB1167CE6B60093E19E /* Queen Of Clubs.png */,
@@ -379,6 +387,9 @@
 				F8E5ADA2169C5BD2006B74D4 /* GameScreenViewController.h */,
 				F8E5ADA3169C5BD2006B74D4 /* GameScreenViewController.m */,
 				F8E5ADA4169C5BD2006B74D4 /* GameScreenViewController.xib */,
+				F895194C16A0282C00AA505B /* OptionsViewController.h */,
+				F895194D16A0282C00AA505B /* OptionsViewController.m */,
+				F895194E16A0282C00AA505B /* OptionsViewController.xib */,
 				F89ECA44169DABAE00A17352 /* RaiseViewController.h */,
 				F89ECA45169DABAE00A17352 /* RaiseViewController.m */,
 			);
@@ -462,7 +473,7 @@
 				F8975AE8167CE6B60093E19E /* Jack Of Hearts.png in Resources */,
 				F8975AEA167CE6B60093E19E /* Jack Of Spades.png in Resources */,
 				F8975AEC167CE6B60093E19E /* King Of Clubs.png in Resources */,
-				F8975AEE167CE6B60093E19E /* Kind Of Diamonds.png in Resources */,
+				F8975AEE167CE6B60093E19E /* King Of Diamonds.png in Resources */,
 				F8975AF0167CE6B60093E19E /* King Of Hearts.png in Resources */,
 				F8975AF2167CE6B60093E19E /* King Of Spades.png in Resources */,
 				F8975AF4167CE6B60093E19E /* Queen Of Clubs.png in Resources */,
@@ -508,6 +519,8 @@
 				F8E5ADB3169C78C9006B74D4 /* playingCardBack.png in Resources */,
 				F8E5ADB5169C7DF3006B74D4 /* deck-4.png in Resources */,
 				F8E5ADB7169C8497006B74D4 /* chipStack.png in Resources */,
+				F895195016A0282C00AA505B /* OptionsViewController.xib in Resources */,
+				F895195316A028BB00AA505B /* spadesxclubsbackground.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +545,7 @@
 				F8E5ADA5169C5BD2006B74D4 /* GameScreenViewController.m in Sources */,
 				F8E5ADAB169C5E5D006B74D4 /* CardView.m in Sources */,
 				F89ECA46169DABAE00A17352 /* RaiseViewController.m in Sources */,
+				F895194F16A0282C00AA505B /* OptionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

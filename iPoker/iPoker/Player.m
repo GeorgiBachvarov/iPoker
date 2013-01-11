@@ -35,6 +35,18 @@
     int numberOfCardsOfRank[13];
     bool card_exists[4][13];
     
+    for (int i = 0; i < 4; i++){
+        numberOfCardsInSuit[i] = 0;
+    }
+    for (int i = 0; i < 13; i++){
+        numberOfCardsOfRank[i] = 0;
+    }
+    for (int i = 0; i < 4; i++){
+        for (int j = 0; j < 13; j++){
+            card_exists[i][j] = false;
+        }
+    }
+    
     for (Card *card in hand) {
         numberOfCardsInSuit[card.suit] ++;
         numberOfCardsOfRank[card.rank] ++;
@@ -43,12 +55,12 @@
     
     //analyze hand
     
-    int flushStrength;
-    int flushSuit;
-    int straightStrength;
-    int fourStrength;
-    int threeStrength;
-    int pairStrength;
+    int flushStrength = 0;
+    int flushSuit = 0;
+    int straightStrength = 0;
+    int fourStrength = 0;
+    int threeStrength = 0;
+    int pairStrength = 0;
     int numberOfPairs = 0;
     
     //check for flush
@@ -179,6 +191,7 @@
     for (int rank = 12; rank >=0 ; rank--){
         if (numberOfCardsOfRank[rank]){
             handStrength.highCard = rank;
+            break;
         }
     }
     

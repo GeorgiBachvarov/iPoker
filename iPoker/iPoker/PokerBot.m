@@ -39,7 +39,7 @@
     
     //posting blinds
     if (self.gameState.round == RoundPostingBlinds){
-        if (self.isDealer){
+        if (!self.gameState.playerIsDealer){
             if (self.moneyLeft >= self.gameState.options.minimumBet / 2){
                 botAction.action = ActionPostBlind;
                 botAction.amount = self.gameState.options.minimumBet / 2;
@@ -114,6 +114,7 @@
     if (self.gameState.round > RoundBettingRound){
         HandStrength *handStrength = [self evaluateHand: [self availableCards]];
         CGFloat handStrengthCoefficient = [self handStrengthCoefficient:handStrength forRound:self.gameState.round];
+        NSLog(@"bot has %d , %d high", handStrength.handRanking, handStrength.highCard);
         
         if (handStrengthCoefficient + self.aggression > 1){
             
@@ -150,14 +151,13 @@
                 botAction.amount = amountToRaise;
                 
                 
-            }else if (handStrengthCoefficient + self.aggression > 0.85){
+            }else if (handStrengthCoefficient + self.aggression > 0.85 || self.gameState.currentPot == self.gameState.currentRaise){
                 botAction.action = ActionCall;
                 botAction.amount = self.gameState.currentRaise;
             }else{
                 botAction.action = ActionFold;
                 botAction.amount = self.gameState.currentPot;
             }
-            
         }
     }
     
