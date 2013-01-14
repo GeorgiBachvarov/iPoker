@@ -34,7 +34,13 @@
     return cards;
 }
 
-- (PlayerAction *)nextAction{
+- (void)nextAction{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self calculateNextAction];
+    });
+}
+
+- (void) calculateNextAction{
     PlayerAction *botAction = [[PlayerAction alloc] init];
     
     //posting blinds
@@ -167,7 +173,10 @@
         botAction.amount = 0;
     }
     
-    return botAction;
+    
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [self.delegate botChoseAction:botAction];
+    });
 }
 
 - (CGFloat) handStrengthCoefficient: (HandStrength *) handStrength forRound:(Round) round{

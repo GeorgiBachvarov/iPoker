@@ -31,6 +31,7 @@
         self.gameState = [[GameState alloc] initWithGameOptions: gameOptions? gameOptions : [[GameOptions alloc] init] ];
         self.player = [[HumanPlayer alloc] initWithGameState:self.gameState];
         self.bot = [[PokerBot alloc] initWithGameState:self.gameState];
+        self.bot.delegate = self;
         [self.gameState getNewDeck];
         [self.gameState shuffleDeck];
     }
@@ -47,33 +48,24 @@
     
     [self updateBalanceLabels];
     [self enterRound:RoundPostingBlinds];
-    [self enterRound:RoundBettingRound];
 }
 
 - (void) enterRound: (Round) round{
     switch (round) {
         case RoundPostingBlinds:
         {
-            PlayerAction *botBlind = [self.bot nextAction];
             
-            PlayerAction *playerBlind = [self.player placeBlind];
-            
-            self.gameState.currentPot = self.gameState.playerIsDealer ? playerBlind.amount : botBlind.amount;
-            self.gameState.currentRaise = !self.gameState.playerIsDealer ? playerBlind.amount : botBlind.amount;
-            
-            if (botBlind.amount == 0){
-                [self endGame:1];
-                return;
+            if (self.gameState.playerIsDealer){
+               PlayerAction *playerBlind = [self.player placeBlind];
+                self.gameState.currentPot = playerBlind.amount;
+                
+                if (playerBlind.amount == 0){
+                    [self endGame:-1];
+                    return;
+                }
             }
             
-            if (playerBlind.amount == 0){
-                [self endGame:-1];
-                return;
-            }
-            
-            [self updatePotLabelForPlayerMoney:playerBlind.amount botMoney:botBlind.amount];
-            
-            self.gameState.round = RoundBettingRound;
+            [self.bot nextAction];
             
             break;
         }
@@ -91,7 +83,7 @@
             self.secondPlayerCard.image = [[self.gameState.playerHand objectAtIndex:1] visualRepresentation];
             
             if (!self.gameState.playerIsDealer){
-                [self updateUIForBotAction:[self.bot nextAction]];
+                [self.bot nextAction];
             }
             
             break;
@@ -105,9 +97,7 @@
             self.secondCommunityCard.image = [[self.gameState.communityCards objectAtIndex:1] visualRepresentation];
             self.thirdCommunityCard.image = [[self.gameState.communityCards objectAtIndex:2] visualRepresentation];
             
-            if (!self.gameState.playerIsDealer){
-                [self updateUIForBotAction:[self.bot nextAction]];
-            }
+            
             
             break;
         }
@@ -126,10 +116,6 @@
             [self.gameState.deck removeObjectAtIndex:0];
             
             self.fifthCommunityCard.image = [[self.gameState.communityCards objectAtIndex:4] visualRepresentation];
-            
-            if (!self.gameState.playerIsDealer){
-                [self updateUIForBotAction:[self.bot nextAction]];
-            }
             
             break;
         }
@@ -184,6 +170,7 @@
 }
 
 - (void) updatePotLabelForPlayerMoney: (NSUInteger)playerPot botMoney: (NSUInteger) botPot{
+    NSLog(@"$ %d / $ %d", playerPot, botPot);
     self.potLabel.text = [NSString stringWithFormat:@"$ %d / $ %d", playerPot, botPot];
 }
 
@@ -199,14 +186,32 @@
 
 - (IBAction)callButtonPressed:(id)sender {
     [self updatePotLabelForPlayerMoney:self.gameState.currentRaise botMoney:self.gameState.currentRaise];
+    BOOL isCheck = self.gameState.currentPot == self.gameState.currentRaise;
     self.gameState.currentPot = self.gameState.currentRaise;
     
-    if (self.gameState.round != RoundTheRiver){
-        self.gameState.round ++;
-        [self enterRound:self.gameState.round];
-        [self updateUIForBotAction:[self.bot nextAction]];
+    if (self.gameState.playerIsDealer){
+        if (self.gameState.round != RoundTheRiver){
+            self.gameState.round ++;
+            [self enterRound:self.gameState.round];
+            [self.bot nextAction];
+        }else{
+            [self riverShowdown];
+        }
     }else{
-        [self riverShowdown];
+        if (!isCheck || self.gameState.round == RoundBettingRound){
+            if (self.gameState.round != RoundTheRiver){
+                [self.callButton setTitle:@"Check" forState:UIControlStateNormal];
+                self.foldButton.hidden = YES;
+                self.gameState.round ++;
+                [self enterRound:self.gameState.round];
+                
+            }else{
+                [self riverShowdown];
+            }
+        }
+        if (isCheck){
+            [self.bot nextAction];
+        }
     }
 }
 
@@ -225,24 +230,7 @@
         self.gameState.currentPot = self.gameState.currentRaise;
         self.gameState.currentRaise = sum;
         [self updatePotLabelForPlayerMoney:self.gameState.currentRaise botMoney:self.gameState.currentPot];
-        PlayerAction *botAction = [self.bot nextAction];
-        if (botAction.action == ActionCall){
-            [self updateUIForBotAction:botAction];
-            if (self.gameState.round != RoundTheRiver){
-                self.gameState.round++;
-                [self enterRound:self.gameState.round];
-            }
-            else{
-                [self riverShowdown];
-            }
-        }
-        if (botAction.action == ActionRaise){
-            [self updateUIForBotAction:botAction];
-        }
-        if (botAction.action == ActionFold){
-            self.logLabel.text = [NSString stringWithFormat: @"iPokerBot has folded"];
-            [self endGame:1];
-        }
+        [self.bot nextAction];
     }
     [self.popover dismissPopoverAnimated:YES];
 }
@@ -265,7 +253,7 @@
     [self.gameState prepareForNextGame];
     
     [self enterRound:RoundPostingBlinds];
-    [self enterRound:RoundBettingRound];
+//    [self enterRound:RoundBettingRound];
     
 }
 
@@ -276,7 +264,7 @@
     while (self.gameState.communityCards.count != 5) {
         [self.gameState.communityCards addObject:[self.gameState.deck objectAtIndex:0]];
         [self.gameState.deck removeObjectAtIndex:0];
-        ((UIImageView *)[self.viewsForCommunityCards objectAtIndex:self.gameState.communityCards.count - 1]).image = [self.gameState.communityCards objectAtIndex:self.gameState.communityCards.count -1];
+        ((UIImageView *)[self.viewsForCommunityCards objectAtIndex:self.gameState.communityCards.count - 1]).image = [[self.gameState.communityCards objectAtIndex:self.gameState.communityCards.count -1] visualRepresentation];
     }
     
     [self riverShowdown];
@@ -284,11 +272,43 @@
 }
 
 - (void) updateUIForBotAction: (PlayerAction *) botAction{
+    
     switch (botAction.action) {
+        case ActionPostBlind:{
+            if (botAction.amount == 0){
+                [self endGame:1];
+                return;
+            }
+            
+            if (self.gameState.playerIsDealer){
+                self.gameState.currentRaise = botAction.amount;
+                [self updatePotLabelForPlayerMoney:self.gameState.currentPot botMoney:self.gameState.currentRaise];
+                self.gameState.round = RoundBettingRound;
+                [self enterRound:RoundBettingRound];
+            }else{
+                PlayerAction *playerBlind = [self.player placeBlind];
+                self.gameState.currentRaise = playerBlind.amount;
+                self.gameState.currentPot = botAction.amount;
+                
+                [self updatePotLabelForPlayerMoney:self.gameState.currentRaise botMoney:self.gameState.currentPot];
+                
+                if (playerBlind.amount == 0){
+                    [self endGame:-1];
+                    return;
+                }
+                
+                self.gameState.round ++;
+                [self enterRound:self.gameState.round];
+            }
+
+            
+            break;
+        }
         case ActionFold:
+            self.logLabel.text = [NSString stringWithFormat: @"iPokerBot has folded"];
             [self endGame:1];
             break;
-        case ActionCall:
+        case ActionCall:{
             if (self.gameState.currentPot != self.gameState.currentRaise){
                 self.logLabel.text = [NSString stringWithFormat: @"iPokerBot has called your bet of $ %d", self.gameState.currentRaise];
                 self.gameState.currentPot = self.gameState.currentRaise;
@@ -298,18 +318,34 @@
             [self updatePotLabelForPlayerMoney:self.gameState.currentPot botMoney:self.gameState.currentPot];
             [self.callButton setTitle:@"Check" forState:UIControlStateNormal];
             self.foldButton.hidden = YES;
+            if (!self.gameState.playerIsDealer){
+                if (self.gameState.round != RoundTheRiver){
+                    self.gameState.round++;
+                    [self enterRound:self.gameState.round];
+                }
+                else{
+                    [self riverShowdown];
+                }
+            }
             break;
+        }
         case ActionRaise:
+            NSLog(@"update uifor action raise");
             self.gameState.currentPot = self.gameState.currentRaise;
             self.gameState.currentRaise = botAction.amount;
              self.logLabel.text = [NSString stringWithFormat: @"iPokerBot has raised the bet to $ %d", self.gameState.currentRaise];
             [self updatePotLabelForPlayerMoney:self.gameState.currentPot botMoney:self.gameState.currentRaise];
             [self.callButton setTitle:@"Call" forState:UIControlStateNormal];
             self.foldButton.hidden = NO;
+            if (self.gameState.currentRaise > self.player.moneyLeft){
+                self.allInButton.hidden = NO;
+                self.callButton.hidden = YES;
+            }
             break;
         default:
             break;
     }
+    
 }
 
 - (void) updateBalanceLabels{
@@ -324,6 +360,12 @@
     self.callButton.hidden = YES;
     self.raiseButton.hidden = YES;
     self.foldButton.hidden = YES;
+}
+
+#pragma mark PokerBotDelegate
+
+- (void)botChoseAction:(PlayerAction *)action{
+    [self updateUIForBotAction:action];
 }
 
 @end

@@ -12,7 +12,8 @@ typedef enum {
     ActionFold = 0,
     ActionCall = 1,
     ActionRaise = 2,
-    ActionPostBlind = 3
+    ActionPostBlind = 3,
+    ActionAllIn = 4
 } Action;
 
 @interface PlayerAction : NSObject

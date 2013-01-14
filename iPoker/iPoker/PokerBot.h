@@ -9,9 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "Player.h"
 
+@protocol PokerBotDelegate <NSObject>
+
+- (void) botChoseAction: (PlayerAction *) action;
+
+@end
+
 @interface PokerBot : Player
 
 - (CGFloat) handStrengthCoefficient: (HandStrength *) handStrength forRound:(Round) round;
--(PlayerAction *) nextAction;
+-(void) nextAction;
+@property (nonatomic, assign) id <PokerBotDelegate> delegate;
 
 @end

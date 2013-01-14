@@ -12,7 +12,7 @@
 #import "PokerBot.h"
 #import "RaiseViewController.h"
 
-@interface GameScreenViewController : UIViewController <RaiseViewControllerDelegate, UIAlertViewDelegate>
+@interface GameScreenViewController : UIViewController <RaiseViewControllerDelegate, UIAlertViewDelegate, PokerBotDelegate>
 
 - initWithGameOptions: (GameOptions *) gameOptions;
 
