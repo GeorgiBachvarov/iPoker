@@ -12,6 +12,10 @@
 		F895195316A028BB00AA505B /* spadesxclubsbackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F895195216A028BB00AA505B /* spadesxclubsbackground.jpg */; };
 		F8953AF7167E0EA600B70448 /* PlayerAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F8953AF6167E0EA600B70448 /* PlayerAction.m */; };
 		F8953AFB167E262100B70448 /* GameOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = F8953AFA167E262100B70448 /* GameOptions.m */; };
+		F8956BE816A962E100A054A4 /* HistoryData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8956BE616A962E100A054A4 /* HistoryData.xcdatamodeld */; };
+		F8956BF716A9732A00A054A4 /* PlayerHoleDecision.m in Sources */ = {isa = PBXBuildFile; fileRef = F8956BF616A9732A00A054A4 /* PlayerHoleDecision.m */; };
+		F8956BFA16A9733800A054A4 /* PlayerDecision.m in Sources */ = {isa = PBXBuildFile; fileRef = F8956BF916A9733800A054A4 /* PlayerDecision.m */; };
+		F8956C0116A990F700A054A4 /* StrategyAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = F8956C0016A990F600A054A4 /* StrategyAnalyzer.m */; };
 		F8975A55167CAD440093E19E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8975A54167CAD440093E19E /* UIKit.framework */; };
 		F8975A57167CAD440093E19E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8975A56167CAD440093E19E /* Foundation.framework */; };
 		F8975A59167CAD440093E19E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8975A58167CAD440093E19E /* CoreGraphics.framework */; };
@@ -79,6 +83,8 @@
 		F8975B1A167CE6B60093E19E /* 10 Of Diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AD7167CE6B60093E19E /* 10 Of Diamonds.png */; };
 		F8975B1B167CE6B60093E19E /* 10 Of Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AD8167CE6B60093E19E /* 10 Of Hearts.png */; };
 		F8975B1C167CE6B60093E19E /* 10 Of Spades.png in Resources */ = {isa = PBXBuildFile; fileRef = F8975AD9167CE6B60093E19E /* 10 Of Spades.png */; };
+		F898A8B016A86FBD004B72C0 /* HistoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F898A8AF16A86FBD004B72C0 /* HistoryManager.m */; };
+		F898A8B316A87205004B72C0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F898A8B216A87205004B72C0 /* CoreData.framework */; };
 		F89ECA46169DABAE00A17352 /* RaiseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89ECA45169DABAE00A17352 /* RaiseViewController.m */; };
 		F8E5AD9F169C587B006B74D4 /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E5AD9D169C587B006B74D4 /* MainScreenViewController.m */; };
 		F8E5ADA0169C587B006B74D4 /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8E5AD9E169C587B006B74D4 /* MainScreenViewController.xib */; };
@@ -101,6 +107,13 @@
 		F8953AF6167E0EA600B70448 /* PlayerAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerAction.m; sourceTree = "<group>"; };
 		F8953AF9167E262100B70448 /* GameOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOptions.h; sourceTree = "<group>"; };
 		F8953AFA167E262100B70448 /* GameOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOptions.m; sourceTree = "<group>"; };
+		F8956BE716A962E100A054A4 /* HistoryData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HistoryData.xcdatamodel; sourceTree = "<group>"; };
+		F8956BF516A9732A00A054A4 /* PlayerHoleDecision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerHoleDecision.h; sourceTree = "<group>"; };
+		F8956BF616A9732A00A054A4 /* PlayerHoleDecision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerHoleDecision.m; sourceTree = "<group>"; };
+		F8956BF816A9733800A054A4 /* PlayerDecision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerDecision.h; path = ../PlayerDecision.h; sourceTree = "<group>"; };
+		F8956BF916A9733800A054A4 /* PlayerDecision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerDecision.m; path = ../PlayerDecision.m; sourceTree = "<group>"; };
+		F8956BFF16A990F600A054A4 /* StrategyAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StrategyAnalyzer.h; sourceTree = "<group>"; };
+		F8956C0016A990F600A054A4 /* StrategyAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StrategyAnalyzer.m; sourceTree = "<group>"; };
 		F896556D169B17260000FA6F /* GameStateDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameStateDelegate.h; sourceTree = "<group>"; };
 		F8975A50167CAD440093E19E /* iPoker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPoker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8975A54167CAD440093E19E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -179,6 +192,9 @@
 		F8975AD7167CE6B60093E19E /* 10 Of Diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "10 Of Diamonds.png"; sourceTree = "<group>"; };
 		F8975AD8167CE6B60093E19E /* 10 Of Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "10 Of Hearts.png"; sourceTree = "<group>"; };
 		F8975AD9167CE6B60093E19E /* 10 Of Spades.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "10 Of Spades.png"; sourceTree = "<group>"; };
+		F898A8AE16A86FBD004B72C0 /* HistoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryManager.h; sourceTree = "<group>"; };
+		F898A8AF16A86FBD004B72C0 /* HistoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryManager.m; sourceTree = "<group>"; };
+		F898A8B216A87205004B72C0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F89ECA44169DABAE00A17352 /* RaiseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaiseViewController.h; sourceTree = "<group>"; };
 		F89ECA45169DABAE00A17352 /* RaiseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RaiseViewController.m; sourceTree = "<group>"; };
 		F8E5AD9C169C587B006B74D4 /* MainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenViewController.h; sourceTree = "<group>"; };
@@ -201,6 +217,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F898A8B316A87205004B72C0 /* CoreData.framework in Frameworks */,
 				F8975A55167CAD440093E19E /* UIKit.framework in Frameworks */,
 				F8975A57167CAD440093E19E /* Foundation.framework in Frameworks */,
 				F8975A59167CAD440093E19E /* CoreGraphics.framework in Frameworks */,
@@ -210,6 +227,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F8956BE416A962BF00A054A4 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F8956BE616A962E100A054A4 /* HistoryData.xcdatamodeld */,
+				F8956BF816A9733800A054A4 /* PlayerDecision.h */,
+				F8956BF916A9733800A054A4 /* PlayerDecision.m */,
+				F8956BF516A9732A00A054A4 /* PlayerHoleDecision.h */,
+				F8956BF616A9732A00A054A4 /* PlayerHoleDecision.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		F8975A45167CAD440093E19E = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +259,7 @@
 		F8975A53167CAD440093E19E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F898A8B216A87205004B72C0 /* CoreData.framework */,
 				F8975A54167CAD440093E19E /* UIKit.framework */,
 				F8975A56167CAD440093E19E /* Foundation.framework */,
 				F8975A58167CAD440093E19E /* CoreGraphics.framework */,
@@ -276,6 +306,7 @@
 		F8975A7D167CB10E0093E19E /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				F8956BE416A962BF00A054A4 /* CoreData */,
 				F8953AF9167E262100B70448 /* GameOptions.h */,
 				F8953AFA167E262100B70448 /* GameOptions.m */,
 				F8975A7E167CB2970093E19E /* GameState.h */,
@@ -293,6 +324,10 @@
 				F8975A85167CC0430093E19E /* PokerBot.m */,
 				F8975A91167CDAFD0093E19E /* HumanPlayer.h */,
 				F8975A92167CDAFD0093E19E /* HumanPlayer.m */,
+				F898A8AE16A86FBD004B72C0 /* HistoryManager.h */,
+				F898A8AF16A86FBD004B72C0 /* HistoryManager.m */,
+				F8956BFF16A990F600A054A4 /* StrategyAnalyzer.h */,
+				F8956C0016A990F600A054A4 /* StrategyAnalyzer.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -546,6 +581,11 @@
 				F8E5ADAB169C5E5D006B74D4 /* CardView.m in Sources */,
 				F89ECA46169DABAE00A17352 /* RaiseViewController.m in Sources */,
 				F895194F16A0282C00AA505B /* OptionsViewController.m in Sources */,
+				F898A8B016A86FBD004B72C0 /* HistoryManager.m in Sources */,
+				F8956BE816A962E100A054A4 /* HistoryData.xcdatamodeld in Sources */,
+				F8956BF716A9732A00A054A4 /* PlayerHoleDecision.m in Sources */,
+				F8956BFA16A9733800A054A4 /* PlayerDecision.m in Sources */,
+				F8956C0116A990F700A054A4 /* StrategyAnalyzer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,6 +661,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iPoker/iPoker-Prefix.pch";
 				INFOPLIST_FILE = "iPoker/iPoker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -632,6 +673,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iPoker/iPoker-Prefix.pch";
 				INFOPLIST_FILE = "iPoker/iPoker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -659,6 +701,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F8956BE616A962E100A054A4 /* HistoryData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F8956BE716A962E100A054A4 /* HistoryData.xcdatamodel */,
+			);
+			currentVersion = F8956BE716A962E100A054A4 /* HistoryData.xcdatamodel */;
+			path = HistoryData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F8975A47167CAD440093E19E /* Project object */;
 }

@@ -16,7 +16,6 @@
 @property (nonatomic, assign) NSUInteger moneyLeft;
 
 -initWithGameState: (GameState *) state;
-- (HandStrength *) evaluateHand: (NSArray *) hand;
 -(NSArray *) availableCards;
 
 @end

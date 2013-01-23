@@ -40,6 +40,7 @@ typedef enum{
 
 @property (nonatomic, assign) id <GameStateDelegate> player;
 @property (nonatomic, assign) id <GameStateDelegate> bot;
+@property (nonatomic, strong) NSMutableDictionary *playerActionsByRound;
 
 - (id) initWithGameOptions: (GameOptions *) options;
 - (void) getNewDeck;

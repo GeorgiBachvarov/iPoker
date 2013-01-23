@@ -126,6 +126,8 @@
 }
 
 - (void) endGame:(NSInteger)playerWins {
+    
+    self.allInButton.hidden = YES;
     NSLog(@"END GAME. Winner: %@", playerWins > 0 ? @"Player": (playerWins < 0 ? @"Bot" : @"Draw"));
     
     NSString *message;
@@ -153,6 +155,13 @@
     }
     
     [self updateBalanceLabels];
+    
+    if (self.player.moneyLeft == 0 || self.bot.moneyLeft == 0){
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:[NSString stringWithFormat:@"Game Over. You %@!", self.player.moneyLeft == 0? @"Lose" : @"Win"] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+        alertView.tag = 1;
+        [alertView show];
+        return;
+    }
 
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:message delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
     alertView.tag = 0;
@@ -164,7 +173,10 @@
     self.firstBotCard.image = [[self.gameState.botHand objectAtIndex:0] visualRepresentation];
     self.secondBotCard.image = [[self.gameState.botHand objectAtIndex:1] visualRepresentation];
     
-    NSInteger result = [[self.bot evaluateHand:[self.gameState.communityCards arrayByAddingObjectsFromArray:self.gameState.botHand]] compareTo:[self.player evaluateHand:[self.gameState.communityCards arrayByAddingObjectsFromArray:self.gameState.playerHand]]];
+    NSInteger result = [[StrategyAnalyzer evaluateHand:[self.gameState.communityCards arrayByAddingObjectsFromArray:self.gameState.botHand]] compareTo:[StrategyAnalyzer evaluateHand:[self.gameState.communityCards arrayByAddingObjectsFromArray:self.gameState.playerHand]]];
+    
+    
+    [self.bot gameEndedWithResult:-result playerStrategy:[StrategyAnalyzer strategiesForRounds:self.gameState.playerActionsByRound basedOnCards:[self.gameState.playerHand arrayByAddingObjectsFromArray:self.gameState.communityCards]]];
     
     [self endGame:-result];
 }
@@ -185,9 +197,11 @@
 }
 
 - (IBAction)callButtonPressed:(id)sender {
+    [self logPlayerAction:ActionCall];
     [self updatePotLabelForPlayerMoney:self.gameState.currentRaise botMoney:self.gameState.currentRaise];
     BOOL isCheck = self.gameState.currentPot == self.gameState.currentRaise;
     self.gameState.currentPot = self.gameState.currentRaise;
+    
     
     if (self.gameState.playerIsDealer){
         if (self.gameState.round != RoundTheRiver){
@@ -198,7 +212,7 @@
             [self riverShowdown];
         }
     }else{
-        if (!isCheck || self.gameState.round == RoundBettingRound){
+        if (!isCheck || self.gameState.round == RoundBettingRound || self.gameState.currentRaise == self.gameState.options.moneyLimit){
             if (self.gameState.round != RoundTheRiver){
                 [self.callButton setTitle:@"Check" forState:UIControlStateNormal];
                 self.foldButton.hidden = YES;
@@ -227,6 +241,7 @@
 
 - (void)raiseViewController:(RaiseViewController *)raiseViewController didChooseSum:(NSUInteger)sum{
     if (sum > self.gameState.currentRaise && sum <= self.player.moneyLeft && sum <= self.gameState.options.moneyLimit){
+        [self logPlayerAction:ActionRaise];
         self.gameState.currentPot = self.gameState.currentRaise;
         self.gameState.currentRaise = sum;
         [self updatePotLabelForPlayerMoney:self.gameState.currentRaise botMoney:self.gameState.currentPot];
@@ -261,14 +276,22 @@
     
     self.gameState.playerIsAllIn = YES;
     
+    self.gameState.currentPot = self.player.moneyLeft;
+    
+    [self updatePotLabelForPlayerMoney:self.gameState.currentPot botMoney:self.gameState.currentRaise];
+    
+    [self dealToEnd];
+    
+    [self riverShowdown];
+    
+}
+
+- (void) dealToEnd{
     while (self.gameState.communityCards.count != 5) {
         [self.gameState.communityCards addObject:[self.gameState.deck objectAtIndex:0]];
         [self.gameState.deck removeObjectAtIndex:0];
         ((UIImageView *)[self.viewsForCommunityCards objectAtIndex:self.gameState.communityCards.count - 1]).image = [[self.gameState.communityCards objectAtIndex:self.gameState.communityCards.count -1] visualRepresentation];
     }
-    
-    [self riverShowdown];
-    
 }
 
 - (void) updateUIForBotAction: (PlayerAction *) botAction{
@@ -337,10 +360,17 @@
             [self updatePotLabelForPlayerMoney:self.gameState.currentPot botMoney:self.gameState.currentRaise];
             [self.callButton setTitle:@"Call" forState:UIControlStateNormal];
             self.foldButton.hidden = NO;
-            if (self.gameState.currentRaise > self.player.moneyLeft){
+            if (self.gameState.currentRaise >= self.player.moneyLeft){
                 self.allInButton.hidden = NO;
                 self.callButton.hidden = YES;
             }
+            break;
+        case ActionAllIn:
+            self.gameState.botIsAllIn = YES;
+            self.gameState.currentPot = self.bot.moneyLeft;
+            [self updatePotLabelForPlayerMoney:self.gameState.currentRaise botMoney:self.gameState.currentPot];
+            [self dealToEnd];
+            [self riverShowdown];
             break;
         default:
             break;
@@ -353,14 +383,29 @@
     self.botMoneyLeftLabel.text = [NSString stringWithFormat:@"$ %d", self.bot.moneyLeft];
 }
 
+- (void) logPlayerAction: (Action) playerAction{
+    Round round = self.gameState.round;
+    [[self.gameState.playerActionsByRound objectForKey:@(round)]  addObject:@(playerAction)];
+}
+
 #pragma mark UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
-    self.nextGameButton.hidden = NO;
-    self.callButton.hidden = YES;
-    self.raiseButton.hidden = YES;
-    self.foldButton.hidden = YES;
+    switch (alertView.tag) {
+        case 0:
+            self.nextGameButton.hidden = NO;
+            self.callButton.hidden = YES;
+            self.raiseButton.hidden = YES;
+            self.foldButton.hidden = YES;
+            break;
+        case 1:
+            [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+            break;
+        default:
+            break;
+    }
 }
+
 
 #pragma mark PokerBotDelegate
 

@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+
 @protocol GameStateDelegate <NSObject>
 
-- (void) gameEndedWithResult: (BOOL) win balance: (NSInteger) money;
+- (void) gameEndedWithResult: (NSInteger) winner playerStrategy: (NSDictionary *) strategy;
 
 @end

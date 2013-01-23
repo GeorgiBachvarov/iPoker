@@ -8,6 +8,8 @@
 
 #import "GameState.h"
 
+
+
 @implementation GameState
 
 - (id)init
@@ -18,7 +20,11 @@
         self.playerHand = [[NSMutableArray alloc] init];
         self.botHand = [[NSMutableArray alloc] init];
         self.communityCards = [[NSMutableArray alloc] init];
-        
+        self.playerActionsByRound = [[NSMutableDictionary alloc] init];
+        [self.playerActionsByRound setObject:[NSMutableArray array] forKey:@(RoundBettingRound)];
+        [self.playerActionsByRound setObject:[NSMutableArray array] forKey:@(RoundTheFlop)];
+        [self.playerActionsByRound setObject:[NSMutableArray array] forKey:@(RoundTheTurn)];
+        [self.playerActionsByRound setObject:[NSMutableArray array] forKey:@(RoundTheRiver)];
         [self getNewDeck];
         [self shuffleDeck];
     }
@@ -89,6 +95,11 @@
     self.playerIsDealer = !self.playerIsDealer;
     self.playerIsAllIn = NO;
     self.botIsAllIn = NO;
+    self.playerActionsByRound = [[NSMutableDictionary alloc] init];
+    [self.playerActionsByRound setObject:[NSMutableArray array] forKey:@(RoundBettingRound)];
+    [self.playerActionsByRound setObject:[NSMutableArray array] forKey:@(RoundTheFlop)];
+    [self.playerActionsByRound setObject:[NSMutableArray array] forKey:@(RoundTheTurn)];
+    [self.playerActionsByRound setObject:[NSMutableArray array] forKey:@(RoundTheRiver)];
 }
 
 @end
