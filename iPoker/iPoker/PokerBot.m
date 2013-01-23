@@ -384,7 +384,7 @@
         }
             break;
         case RoundTheTurn:{
-            NSArray *turnDecisions = [[HistoryManager sharedInstance] fetchPlayerDecisionsForRound:RoundTheFlop];
+            NSArray *turnDecisions = [[HistoryManager sharedInstance] fetchPlayerDecisionsForRound:RoundTheTurn];
             
             CGFloat bluffPercentage = 0;
             CGFloat valueBetPercentage = 0;
@@ -424,7 +424,7 @@
         }
             break;
         case RoundTheRiver:{
-            NSArray *riverDecisions = [[HistoryManager sharedInstance] fetchPlayerDecisionsForRound:RoundTheFlop];
+            NSArray *riverDecisions = [[HistoryManager sharedInstance] fetchPlayerDecisionsForRound:RoundTheRiver];
             
             CGFloat bluffPercentage = 0;
             CGFloat valueBetPercentage = 0;
@@ -470,7 +470,6 @@
     }
     
     return StrategyUndefined;
-  
 }
 
 
@@ -502,7 +501,6 @@
     
     HandStrength *riverStrength = [StrategyAnalyzer evaluateHand:[playerHand arrayByAddingObjectsFromArray:[self.gameState.communityCards objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 5)]]]];
     [[HistoryManager sharedInstance] addPlayerDecisionWithRanking:riverStrength.handRanking  highCard:riverStrength.highCard andStrategy:[[strategy objectForKey:@(RoundTheRiver)] integerValue] forRound:RoundTheRiver];
-    
 }
 
 
