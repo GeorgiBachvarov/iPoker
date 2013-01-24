@@ -176,14 +176,13 @@
             botAction.amount = amountToRaise;
             
             
-        }else if ((handStrengthCoefficient > 0.42 && fabsf(handStrengthCoefficient - playerAverageHandStrengthCoefficient < 0.2))|| self.gameState.currentPot == self.gameState.currentRaise){
+        }else if ((handStrengthCoefficient > 0.42 && (probablePlayerStrategy == StrategyUndefined || handStrengthCoefficient >= playerAverageHandStrengthCoefficient - 0.2))|| self.gameState.currentPot == self.gameState.currentRaise){
             botAction.action = ActionCall;
             botAction.amount = self.gameState.currentRaise;
         }else{
             botAction.action = ActionFold;
             botAction.amount = self.gameState.currentPot;
         }
-        
     }
     
     if (botAction.amount >= self.moneyLeft){

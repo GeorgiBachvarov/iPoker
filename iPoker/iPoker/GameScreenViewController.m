@@ -222,8 +222,7 @@
             }else{
                 [self riverShowdown];
             }
-        }
-        if (isCheck){
+        }else if (isCheck){
             [self.bot nextAction];
         }
     }

@@ -20,7 +20,7 @@
         
         Action bettingRoundAction = [[[playerActions objectForKey:@(RoundBettingRound)] objectAtIndex:0] integerValue];
         
-        if (winChance >= 5.5){
+        if (winChance >= 0.55){
             if (bettingRoundAction == ActionRaise) {
                 [result setObject:@(StrategyValueBet) forKey:@(RoundBettingRound)];
             }else{
@@ -28,7 +28,7 @@
             }
         }
         
-        if (winChance >=4 && winChance < 5.5){
+        if (winChance >= 0.4 && winChance < 0.55){
             if (bettingRoundAction == ActionCall){
                 [result setObject:@(StrategyValueBet) forKey:@(RoundBettingRound)];
             }else{
@@ -36,7 +36,7 @@
             }
         }
         
-        if (winChance < 4){
+        if (winChance < 0.40){
             [result setObject:@(StrategyBluff) forKey:@(RoundBettingRound)];
         }
     }
@@ -101,7 +101,7 @@
             [result setObject:@(StrategyValueBet) forKey:@(RoundTheRiver)];
             
         }else{
-            if ([[turnActions objectAtIndex:0] integerValue] == ActionRaise){
+            if ([[riverActions objectAtIndex:0] integerValue] == ActionRaise){
                 [result setObject:@(StrategyBluff) forKey:@(RoundTheRiver)];
             }
         }
