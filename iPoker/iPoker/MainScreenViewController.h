@@ -12,8 +12,9 @@
 
 @interface MainScreenViewController : UIViewController <OptionsViewControllerDelegate>
 
-- (IBAction)startGameButtonPressed:(id)sender;
+- (IBAction)continueButtonPressed:(id)sender;
 - (IBAction)optionsButtonPressed:(id)sender;
+- (IBAction)newGameButtonPressed:(id)sender;
 
 @property (nonatomic, strong) GameOptions *gameOptions;
 

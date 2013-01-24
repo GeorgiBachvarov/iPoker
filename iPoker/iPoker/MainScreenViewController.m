@@ -15,6 +15,8 @@
 
 @interface MainScreenViewController ()
 
+@property GameScreenViewController *currentGameScreen;
+
 @end
 
 @implementation MainScreenViewController
@@ -59,15 +61,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)startGameButtonPressed:(id)sender {
-    GameScreenViewController *gameController = [[GameScreenViewController alloc] initWithGameOptions:self.gameOptions];
-    [self presentViewController:gameController animated:YES completion:nil];
+
+- (IBAction)continueButtonPressed:(id)sender {
+    if (self.currentGameScreen){
+        [self presentViewController:self.currentGameScreen animated:YES completion:nil];
+    }else{
+        GameScreenViewController *gameController = [[GameScreenViewController alloc] initWithGameOptions:self.gameOptions];
+        self.currentGameScreen = gameController;
+        [self presentViewController:gameController animated:YES completion:nil];
+    }
 }
 
 - (IBAction)optionsButtonPressed:(id)sender {
     OptionsViewController *optionsController = [[OptionsViewController alloc] initWithInitialOptions:self.gameOptions];
     optionsController.delegate = self;
     [self presentViewController:optionsController animated:YES completion:nil];
+}
+
+- (IBAction)newGameButtonPressed:(id)sender {
+    GameScreenViewController *gameController = [[GameScreenViewController alloc] initWithGameOptions:self.gameOptions];
+    self.currentGameScreen = gameController;
+    [self presentViewController:gameController animated:YES completion:nil];
 }
 
 - (void)optionsViewController:(OptionsViewController *)optionsViewController choseGameOptions:(GameOptions *)gameOptions{

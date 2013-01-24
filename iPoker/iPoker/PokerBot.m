@@ -14,7 +14,7 @@
 
 }
 
-@property (nonatomic, assign) CGFloat aggression;
+//@property (nonatomic, assign) CGFloat aggression;
 @property (nonatomic, assign) Strategy lastAssumedPlayerStrategy;
 
 @end
@@ -24,7 +24,7 @@
 - (id)initWithGameState:(GameState *)state {
     self = [super initWithGameState:state];
     if (self){
-        self.aggression = 0.5;
+//        self.aggression = 0.5;
         state.bot = self;
     }
     return self;
@@ -79,11 +79,11 @@
             self.lastAssumedPlayerStrategy = probablePlayerStrategy;
         }
 
-        if (((objectiveWinCoefficient + self.aggression > 1) || probablePlayerStrategy == StrategyBluff ) && self.gameState.currentRaise != self.gameState.options.moneyLimit){
+        if (((objectiveWinCoefficient >= 0.5) || probablePlayerStrategy == StrategyBluff ) && self.gameState.currentRaise != self.gameState.options.moneyLimit){
 
             botAction.action = ActionRaise;
             
-            NSUInteger overCurrentRaise = 2*(uint)(self.aggression * (float)self.gameState.currentRaise);
+            NSUInteger overCurrentRaise = 2*(uint)(0.5 * (float)self.gameState.currentRaise);
             
             if (probablePlayerStrategy == StrategySlowPlay){
                 overCurrentRaise = overCurrentRaise/4;
@@ -106,7 +106,7 @@
             botAction.amount = amountToRaise;
             
             
-        }else if ((objectiveWinCoefficient + self.aggression > 0.85 ) || probablePlayerStrategy == StrategyBluff){
+        }else if ((objectiveWinCoefficient > 0.42 ) || probablePlayerStrategy == StrategyBluff){
             botAction.action = ActionCall;
             botAction.amount = self.gameState.currentRaise;
         }else{
@@ -151,11 +151,11 @@
         
         playerAverageHandStrengthCoefficient = playerAverageHandStrengthCoefficient / numberOfHandsPlayedWithThisStrategy;
             
-        if ((handStrengthCoefficient + self.aggression > 1 || probablePlayerStrategy == StrategyBluff) && self.gameState.currentRaise != self.gameState.options.moneyLimit && probablePlayerStrategy != StrategySlowPlay){
+        if ((handStrengthCoefficient >= 0.5 || probablePlayerStrategy == StrategyBluff) && self.gameState.currentRaise != self.gameState.options.moneyLimit && probablePlayerStrategy != StrategySlowPlay){
             
             botAction.action = ActionRaise;
             
-            NSUInteger overCurrentRaise = 2*(uint)(self.aggression * (float)self.gameState.currentRaise);
+            NSUInteger overCurrentRaise = 2*(uint)(0.5 * (float)self.gameState.currentRaise);
             NSUInteger amountToRaise = self.gameState.currentRaise + overCurrentRaise;
             
             if (probablePlayerStrategy == StrategyValueBet){
@@ -176,7 +176,7 @@
             botAction.amount = amountToRaise;
             
             
-        }else if ((handStrengthCoefficient + self.aggression > 0.85 && fabsf(handStrengthCoefficient - playerAverageHandStrengthCoefficient < 0.2))|| self.gameState.currentPot == self.gameState.currentRaise){
+        }else if ((handStrengthCoefficient > 0.42 && fabsf(handStrengthCoefficient - playerAverageHandStrengthCoefficient < 0.2))|| self.gameState.currentPot == self.gameState.currentRaise){
             botAction.action = ActionCall;
             botAction.amount = self.gameState.currentRaise;
         }else{
@@ -284,6 +284,9 @@
     switch (self.gameState.round) {
         case RoundBettingRound:{
             NSArray *holeDecisions = [[HistoryManager sharedInstance] fetchPlayerHoleDecisions];
+            if (holeDecisions.count < 5){
+                return StrategyUndefined;
+            }
             
             CGFloat bluffPercentage = 0;
             CGFloat valueBetPercentage = 0;
@@ -342,6 +345,10 @@
         case RoundTheFlop:{
             NSArray *flopDecisions = [[HistoryManager sharedInstance] fetchPlayerDecisionsForRound:RoundTheFlop];
             
+            if (flopDecisions.count < 5){
+                return StrategyUndefined;
+            }
+            
             CGFloat bluffPercentage = 0;
             CGFloat valueBetPercentage = 0;
             CGFloat slowPlayPercentage = 0;
@@ -386,6 +393,10 @@
         case RoundTheTurn:{
             NSArray *turnDecisions = [[HistoryManager sharedInstance] fetchPlayerDecisionsForRound:RoundTheTurn];
             
+            if (turnDecisions.count < 5){
+                return StrategyUndefined;
+            }
+            
             CGFloat bluffPercentage = 0;
             CGFloat valueBetPercentage = 0;
             CGFloat slowPlayPercentage = 0;
@@ -425,6 +436,10 @@
             break;
         case RoundTheRiver:{
             NSArray *riverDecisions = [[HistoryManager sharedInstance] fetchPlayerDecisionsForRound:RoundTheRiver];
+            
+            if (riverDecisions.count < 5){
+                return StrategyUndefined;
+            }
             
             CGFloat bluffPercentage = 0;
             CGFloat valueBetPercentage = 0;
@@ -476,31 +491,41 @@
 
 - (void)gameEndedWithResult:(NSInteger)winner playerStrategy:(NSDictionary *)strategy{
     
-    if (winner >= 0){
-        HandStrength *playerHand = [StrategyAnalyzer evaluateHand:self.gameState.playerHand];
-        HandStrength *botHand = [StrategyAnalyzer evaluateHand:self.gameState.botHand];
-        if ([playerHand compareTo:botHand] < 0){
-            self.aggression += (1 - self.aggression) / 5.0f;
-        }else{
-            self.aggression -= (1 - self.aggression) / 5.0f;
-        }
-        NSLog(@"Bot Aggression: %f", self.aggression);
-    }
+//    if (winner >= 0){
+//        HandStrength *playerHand = [StrategyAnalyzer evaluateHand:self.gameState.playerHand];
+//        HandStrength *botHand = [StrategyAnalyzer evaluateHand:self.gameState.botHand];
+//        if ([playerHand compareTo:botHand] < 0){
+//            self.aggression += (1 - self.aggression) / 5.0f;
+//        }else{
+//            self.aggression -= (1 - self.aggression) / 5.0f;
+//        }
+//        NSLog(@"Bot Aggression: %f", self.aggression);
+//    }
     
     
     NSLog(@"Logging result in history..");
+    
     NSArray *playerHand = self.gameState.playerHand;
-    [[HistoryManager sharedInstance] addPlayerHoleDecisionWithFirstCard:[[playerHand objectAtIndex:0] rank] secondCard:[[playerHand objectAtIndex:1] rank] suited:[[playerHand objectAtIndex:0] suit] == [[playerHand objectAtIndex:1] suit] andStrategy:[[strategy objectForKey:@(RoundBettingRound)] integerValue]];
     
+    if ([strategy objectForKey:@(RoundBettingRound)]){
+        [[HistoryManager sharedInstance] addPlayerHoleDecisionWithFirstCard:[[playerHand objectAtIndex:0] rank] secondCard:[[playerHand objectAtIndex:1] rank] suited:[[playerHand objectAtIndex:0] suit] == [[playerHand objectAtIndex:1] suit] andStrategy:[[strategy objectForKey:@(RoundBettingRound)] integerValue]];
+    }
     
-     HandStrength *flopStrength = [StrategyAnalyzer evaluateHand:[playerHand arrayByAddingObjectsFromArray:[self.gameState.communityCards objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 3)]]]];
-    [[HistoryManager sharedInstance] addPlayerDecisionWithRanking:flopStrength.handRanking  highCard:flopStrength.highCard andStrategy:[[strategy objectForKey:@(RoundTheFlop)] integerValue] forRound:RoundTheFlop];
+    if ([strategy objectForKey:@(RoundTheFlop)]){
+        HandStrength *flopStrength = [StrategyAnalyzer evaluateHand:[playerHand arrayByAddingObjectsFromArray:[self.gameState.communityCards objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 3)]]]];
+        [[HistoryManager sharedInstance] addPlayerDecisionWithRanking:flopStrength.handRanking  highCard:flopStrength.highCard andStrategy:[[strategy objectForKey:@(RoundTheFlop)] integerValue] forRound:RoundTheFlop];
+    }
     
-     HandStrength *turnStrength = [StrategyAnalyzer evaluateHand:[playerHand arrayByAddingObjectsFromArray:[self.gameState.communityCards objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 4)]]]];
-    [[HistoryManager sharedInstance] addPlayerDecisionWithRanking:turnStrength.handRanking  highCard:turnStrength.highCard andStrategy:[[strategy objectForKey:@(RoundTheTurn)] integerValue] forRound:RoundTheTurn];
+    if ([strategy objectForKey:@(RoundTheTurn)]) {
+        HandStrength *turnStrength = [StrategyAnalyzer evaluateHand:[playerHand arrayByAddingObjectsFromArray:[self.gameState.communityCards objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 4)]]]];
+        [[HistoryManager sharedInstance] addPlayerDecisionWithRanking:turnStrength.handRanking  highCard:turnStrength.highCard andStrategy:[[strategy objectForKey:@(RoundTheTurn)] integerValue] forRound:RoundTheTurn];
+    }
     
-    HandStrength *riverStrength = [StrategyAnalyzer evaluateHand:[playerHand arrayByAddingObjectsFromArray:[self.gameState.communityCards objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 5)]]]];
-    [[HistoryManager sharedInstance] addPlayerDecisionWithRanking:riverStrength.handRanking  highCard:riverStrength.highCard andStrategy:[[strategy objectForKey:@(RoundTheRiver)] integerValue] forRound:RoundTheRiver];
+    if ([strategy objectForKey:@(RoundTheRiver)]) {
+        HandStrength *riverStrength = [StrategyAnalyzer evaluateHand:[playerHand arrayByAddingObjectsFromArray:[self.gameState.communityCards objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 5)]]]];
+        [[HistoryManager sharedInstance] addPlayerDecisionWithRanking:riverStrength.handRanking  highCard:riverStrength.highCard andStrategy:[[strategy objectForKey:@(RoundTheRiver)] integerValue] forRound:RoundTheRiver];
+    }
+    
 }
 
 

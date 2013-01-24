@@ -15,12 +15,12 @@
 + (NSDictionary *) strategiesForRounds: (NSDictionary *) playerActions basedOnCards:(NSArray *)cards{
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
     
-    if ([playerActions objectForKey:@(RoundBettingRound)]){
+    if ([playerActions objectForKey:@(RoundBettingRound)] && [[playerActions objectForKey:@(RoundBettingRound)] count] > 0){
         CGFloat winChance = [self initialWinCoefficientForHand:[cards objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 2)]]];
         
         Action bettingRoundAction = [[[playerActions objectForKey:@(RoundBettingRound)] objectAtIndex:0] integerValue];
         
-        if (winChance >= 6.0){
+        if (winChance >= 5.5){
             if (bettingRoundAction == ActionRaise) {
                 [result setObject:@(StrategyValueBet) forKey:@(RoundBettingRound)];
             }else{
@@ -28,7 +28,7 @@
             }
         }
         
-        if (winChance >=4 || winChance < 6.0){
+        if (winChance >=4 && winChance < 5.5){
             if (bettingRoundAction == ActionCall){
                 [result setObject:@(StrategyValueBet) forKey:@(RoundBettingRound)];
             }else{
@@ -42,65 +42,72 @@
     }
     
     NSArray *flopActions = [playerActions objectForKey:@(RoundTheFlop)];
-    NSArray *flopHand = [cards objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 5)]];
-    HandStrength *flopHandStrength = [self evaluateHand:flopHand];
     
-    if (flopHandStrength.handRanking > HandRankingOnePair){
-        if ([[flopActions objectAtIndex:0] integerValue] == ActionRaise){
-            [result setObject:@(StrategyValueBet) forKey:@(RoundTheFlop)];
+    if (flopActions.count > 0){
+        NSArray *flopHand = [cards objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 5)]];
+        HandStrength *flopHandStrength = [self evaluateHand:flopHand];
+        
+        if (flopHandStrength.handRanking >= HandRankingOnePair){
+            if ([[flopActions objectAtIndex:0] integerValue] == ActionRaise){
+                [result setObject:@(StrategyValueBet) forKey:@(RoundTheFlop)];
+            }else{
+                [result setObject:@(StrategySlowPlay) forKey:@(RoundTheFlop)];
+            }
         }else{
-            [result setObject:@(StrategySlowPlay) forKey:@(RoundTheFlop)];
+            [result setObject:@(StrategyBluff) forKey:@(RoundTheFlop)];
         }
-    }else if (flopHandStrength.handRanking == HandRankingOnePair && flopHandStrength.highCard > CardRankEight){
-        if (flopActions.count > 1 && [[flopActions lastObject] integerValue] == ActionRaise){
-            [result setObject:@(StrategySlowPlay) forKey:@(RoundTheFlop)];
-        }else{
-            [result setObject:@(StrategyValueBet) forKey:@(RoundTheFlop)];
-        }
-    }else{
-        [result setObject:@(StrategyBluff) forKey:@(RoundTheFlop)];
     }
     
     NSArray *turnActions = [playerActions objectForKey:@(RoundTheTurn)];
-    NSArray *turnHand = [cards objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 6)]];
-    HandStrength *turnHandStrength = [self evaluateHand:turnHand];
     
-    if (turnHandStrength.handRanking >= HandRankingThreeOfAKind){
-        if ([[flopActions objectAtIndex:0] integerValue] == ActionRaise){
-            [result setObject:@(StrategyValueBet) forKey:@(RoundTheTurn)];
+    if (turnActions.count > 0){
+        NSArray *turnHand = [cards objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 6)]];
+        HandStrength *turnHandStrength = [self evaluateHand:turnHand];
+        
+        if (turnHandStrength.handRanking >= HandRankingTwoPair){
+            if ([[turnActions objectAtIndex:0] integerValue] == ActionRaise){
+                [result setObject:@(StrategyValueBet) forKey:@(RoundTheTurn)];
+            }else{
+                [result setObject:@(StrategySlowPlay) forKey:@(RoundTheTurn)];
+            }
+        }else if (turnHandStrength.handRanking == HandRankingOnePair){
+            if ([[turnActions objectAtIndex:0] integerValue] == ActionRaise){
+                [result setObject:@(StrategyBluff) forKey:@(RoundTheTurn)];
+            }else{
+                [result setObject:@(StrategyValueBet) forKey:@(RoundTheTurn)];
+            }
         }else{
-            [result setObject:@(StrategySlowPlay) forKey:@(RoundTheTurn)];
+            if ([[turnActions lastObject] integerValue] == ActionRaise){
+                [result setObject:@(StrategyBluff) forKey:@(RoundTheTurn)];
+            }
         }
-    }else if (turnHandStrength.handRanking == HandRankingTwoPair && turnHandStrength.highCard > CardRankTen){
-        if (turnActions.count > 1 && [[turnActions lastObject] integerValue] == ActionRaise){
-            [result setObject:@(StrategySlowPlay) forKey:@(RoundTheTurn)];
-        }else{
-            [result setObject:@(StrategyValueBet) forKey:@(RoundTheTurn)];
-        }
-    }else{
-        [result setObject:@(StrategyBluff) forKey:@(RoundTheTurn)];
     }
-
+    
+   
+    
     NSArray *riverActions = [playerActions objectForKey:@(RoundTheRiver)];
-    NSArray *riverHand = [cards objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 7)]];
-    HandStrength *riverHandStrength = [self evaluateHand:riverHand];
     
-    if (riverHandStrength.handRanking >= HandRankingThreeOfAKind){
-        if ([[riverActions objectAtIndex:0] integerValue] == ActionRaise){
+    if (riverActions.count > 0){
+        NSArray *riverHand = [cards objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 7)]];
+        HandStrength *riverHandStrength = [self evaluateHand:riverHand];
+        
+        if (riverHandStrength.handRanking >= HandRankingThreeOfAKind){
+            if ([[riverActions objectAtIndex:0] integerValue] == ActionRaise){
+                [result setObject:@(StrategyValueBet) forKey:@(RoundTheRiver)];
+            }else{
+                [result setObject:@(StrategySlowPlay) forKey:@(RoundTheRiver)];
+            }
+        }else if (riverHandStrength.handRanking == HandRankingTwoPair){
             [result setObject:@(StrategyValueBet) forKey:@(RoundTheRiver)];
+            
         }else{
-            [result setObject:@(StrategySlowPlay) forKey:@(RoundTheRiver)];
+            if ([[turnActions objectAtIndex:0] integerValue] == ActionRaise){
+                [result setObject:@(StrategyBluff) forKey:@(RoundTheRiver)];
+            }
         }
-    }else if (riverHandStrength.handRanking == HandRankingTwoPair && riverHandStrength.highCard > CardRankTen){
-        if (riverActions.count > 1 && [[turnActions lastObject] integerValue] == ActionRaise){
-            [result setObject:@(StrategySlowPlay) forKey:@(RoundTheRiver)];
-        }else{
-            [result setObject:@(StrategyValueBet) forKey:@(RoundTheRiver)];
-        }
-    }else{
-        [result setObject:@(StrategyBluff) forKey:@(RoundTheRiver)];
     }
     
+  
     
     return result;
 }
