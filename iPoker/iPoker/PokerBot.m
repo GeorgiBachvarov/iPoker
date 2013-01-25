@@ -42,7 +42,7 @@
         [self calculateNextAction];
     });
 }
-
+ 
 - (void) calculateNextAction{
     PlayerAction *botAction = [[PlayerAction alloc] init];
     
@@ -151,7 +151,7 @@
         
         playerAverageHandStrengthCoefficient = playerAverageHandStrengthCoefficient / numberOfHandsPlayedWithThisStrategy;
             
-        if ((handStrengthCoefficient >= 0.5 || probablePlayerStrategy == StrategyBluff) && self.gameState.currentRaise != self.gameState.options.moneyLimit && probablePlayerStrategy != StrategySlowPlay){
+        if ((handStrengthCoefficient >= 0.5 || probablePlayerStrategy == StrategyBluff) && self.gameState.currentRaise != self.gameState.options.moneyLimit){
             
             botAction.action = ActionRaise;
             
